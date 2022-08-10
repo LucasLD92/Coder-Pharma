@@ -10,7 +10,6 @@ class DIRECTORIO(models.Model):
     codigoPostal = models.IntegerField()
     cargo = models.CharField(max_length=50)
     # Usuario = models.CharField(max_length=50)
-
 class EMPLEADO(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
@@ -23,7 +22,6 @@ class EMPLEADO(models.Model):
     horarioIngreso = models.TimeField()
     horarioSalida = models.TimeField()
     # Usuario = models.CharField(max_length=50)
-
 class PRODUCTO(models.Model):
     monodroga = models.CharField(max_length=50)
     marca = models.CharField(max_length=50) # Del laboratorio productor - Ej. Rivero, Drawer, Klonal, Bayer, Bago, etc.
