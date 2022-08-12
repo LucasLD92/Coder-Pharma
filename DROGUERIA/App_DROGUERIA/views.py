@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from App_DROGUERIA.models import DIRECTORIO, EMPLEADO,PRODUCTO,PROVEEDORES,CLIENTES
 
 # Create your views here.
 
@@ -7,7 +8,8 @@ from django.http import HttpResponse
 def Inicio(request):
     return render(request,"01 - Inicio.html")
 def Productos(request):
-    return render(request,"02 - Productos.html")
+    productos = PRODUCTO.objects.all()
+    return render(request,"02 - Productos.html", {"Vademecum": productos})
 def Contacto (request):
     return render(request,"03 - Contacto.html")
 def AcercadeCoderPharma (request):
@@ -15,11 +17,14 @@ def AcercadeCoderPharma (request):
 def Directorio (request):
     return render(request,"05 - Directorio.html")
 def Empleados (request):
-    return render(request,"06 - Empleados.html")
+    empleados = EMPLEADO.objects.all()
+    return render(request,"06 - Empleados.html", {"Personal": empleados})
 def Proveedores (request):
-    return render(request,"07 - Proveedores.html")
+    proveedores = PROVEEDORES.objects.all()
+    return render(request,"07 - Proveedores.html", {"Proveedores": proveedores})
 def Clientes (request):
-    return render(request,"08 - Clientes.html")
+    clientes = CLIENTES.objects.all()
+    return render(request,"08 - Clientes.html", {"Clientes": clientes})
 
 
 # //////// Funciones ////////

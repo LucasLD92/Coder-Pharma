@@ -10,6 +10,10 @@ class DIRECTORIO(models.Model):
     codigoPostal = models.IntegerField()
     cargo = models.CharField(max_length=50)
     # Usuario = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return f'Apellido y nombre: {self.apellido}, {self.nombre} || Edad: {self.edad} || Cargo  {self.cargo}'
+
 class EMPLEADO(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
@@ -22,6 +26,9 @@ class EMPLEADO(models.Model):
     horarioIngreso = models.TimeField()
     horarioSalida = models.TimeField()
     # Usuario = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return f'Nombre y Apellido: {self.nombre} {self.apellido} - Direccion: {self.direccion} - C.P.: {self.codigoPostal} - Telefono: {self.telefono} - E-mail: {self.eMail} - Puesto {self.puesto} - Cargo {self.cargo} - Horario Ingreso: {self.horarioIngreso} // Horario Salida: {self.horarioSalida} '
 class PRODUCTO(models.Model):
     monodroga = models.CharField(max_length=50)
     marca = models.CharField(max_length=50) # Del laboratorio productor - Ej. Rivero, Drawer, Klonal, Bayer, Bago, etc.
@@ -30,6 +37,9 @@ class PRODUCTO(models.Model):
     certificado = models.IntegerField() # ANMAT
     codigoProducto = models.CharField(max_length=50)
     stock = models.IntegerField()
+    
+    def __str__(self) -> str:
+        return f'{self.monodroga} | {self.marca} | {self.presentacion} | {self.formFarmaceutica} | {self.certificado} | {self.codigoProducto} | {self.stock}'
 
 class PROVEEDORES(models.Model):
     nombre = models.CharField(max_length=50)
@@ -41,7 +51,10 @@ class PROVEEDORES(models.Model):
     eMail = models.EmailField(max_length=50)
     form_pago = models.CharField(max_length=50)
     codigo_Proveedor = models.CharField(max_length=50)
-    tipo_Cliente = models.CharField(max_length=50) # Clinica, Hospitales, Ministerios, Municipio, Gobierno Provincial, etc
+    tipo_Cliente = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return f'Nombre y Apellido: {self.nombre} {self.apellido} - Razon Social: {self.razonSocial} - Direccion: {self.direccion} - C.P.: {self.codigoPostal} - Teléfono: {self.telefono} - E-mail: {self.eMail} - Forma de Pago: {self.form_pago} - Código Proveedor {self.codigo_Proveedor} - Tipo Cliente: {self.tipo_Cliente}'
 
 class CLIENTES(models.Model):
     nombre = models.CharField(max_length=50)
@@ -53,3 +66,8 @@ class CLIENTES(models.Model):
     eMail = models.EmailField(max_length=50)
     form_pago = models.CharField(max_length=50)
     codigo_Cliente = models.CharField(max_length=50)
+    tipo_Cliente= models.CharField(max_length=50) # Clinica, Hospitales, Ministerios, Municipio, Gobierno Provincial, etc
+
+    def __str__(self) -> str:
+        return f'Nombre y Apellido: {self.nombre} {self.apellido} - Razon Social: {self.razonSocial} - Direccion: {self.direccion} - C.P.: {self.codigoPostal} - Teléfono: {self.telefono} - E-mail: {self.eMail} - Forma de Pago: {self.form_pago} - Código Proveedor {self.codigo_Cliente} - Tipo Cliente: {self.tipo_Cliente}'
+
