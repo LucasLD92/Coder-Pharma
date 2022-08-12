@@ -41,6 +41,8 @@ class PRODUCTO(models.Model):
     def __str__(self) -> str:
         return f'{self.monodroga} | {self.marca} | {self.presentacion} | {self.formFarmaceutica} | {self.certificado} | {self.codigoProducto} | {self.stock}'
 
+    class meta():
+        ordering = ('-monodroga',)
 class PROVEEDORES(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)

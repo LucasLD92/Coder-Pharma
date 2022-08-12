@@ -38,6 +38,7 @@ def Clientes (request):
 # Elimina Proveedor
 # Buscar Proveedor
 
+
 # Agrega Producto
 # Edita Producto
 # Elimina Producto

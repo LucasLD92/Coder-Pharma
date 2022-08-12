@@ -4,23 +4,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRODUCTOS</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
     <body>
-        <nav class="navbar navbar-light bg-light static-top">
-            <div class="container">
-                <a class="navbar-brand" href="{% url '01_Inicio' %}">INICIO - </a>
-                <a class="navbar-brand" href="{% url '02_Productos' %}">PRODUCTOS - </a>
-                <a class="navbar-brand" href="{% url '03_Contacto' %}">CONTACTO - </a>
-                <a class="navbar-brand" href="{% url '04_AcercadeCoderPharma' %}">ACERCA DE CODERPHARMA - </a>
-                <a class="btn btn-primary" href="!#">INICIAR</a>
-            </div>
-        </nav>
+        <center>
+            <nav class="navbar navbar-light bg-light static-top">
+                <div class="container">
+                    <a class="navbar-brand" href="{% url '01_Inicio' %}">INICIO - </a>
+                    <a class="navbar-brand" href="{% url '02_Productos' %}">PRODUCTOS - </a>
+                    <a class="navbar-brand" href="{% url '03_Contacto' %}">CONTACTO - </a>
+                    <a class="navbar-brand" href="{% url '04_AcercadeCoderPharma' %}">ACERCA DE CODERPHARMA - </a>
+                    <a class="btn btn-primary" href="!#">INICIAR</a>
+                </div>
+            </nav>
+        </center>
+        
+        <h1> <Center> VADEMECUM </Center> </h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p><b> Productos de Coder-Pharma : </b></p>
 
-        <h1> NUESTROS PRODUCTOS </h1>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p> Acá hay que hacer aparecer todos nuestros productos </p>
+    <center>
+        <table style="width: 1250px;">
+            <tr>
+                <th>Monodroga</th>
+                <th>Marca</th>
+                <th>Presentacion</th>
+                <th>Forma Farmaceutica</th>
+                <th>Certificado ANMAT</th>
+                <th>Código Producto</th>
+                <th>Stock</th>
+            </tr>
+                {% for productos in Vademecum %}
+            <tr>
+                <td>{{productos.monodroga}}</td>
+                <td>{{productos.marca}}</td>
+                <td>{{productos.presentacion}}</td>
+                <td>{{productos.formFarmaceutica}}</td>
+                <td><b> <center> {{productos.certificado}} </center> </b></td>
+                <td>{{productos.codigoProducto}}</td>
+                <td>{{productos.stock}}</td>
+            </tr>
+                {% endfor %}
+        </table>
+    </center>
     </body>
 </html>
