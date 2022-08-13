@@ -4,6 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROVEEDORES</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
     <body>
         <nav class="navbar navbar-light bg-light static-top">
@@ -23,6 +28,37 @@
         <br>
         <p> Detalle de Proveedores </p>
         <p> Funciones de agregar proveedor-editar-eliminar</p>
+
+        <center>
+            <table style="width: 1250px;">
+                <tr>
+                    <th>Nombre y Apellido </th>
+                    <th>Razón Social</th>
+                    <th>Dirección</th>
+                    <th>Código Postal</th>
+                    <th>Teléfono</th>
+                    <th>E-Mail</th>
+                    <th>Forma de Pago</th>
+                    <th>Codigo Proveedor</th>
+                    <th>Codigo Cliente</th>
+                </tr>
+                    {% for proveedor in Proveedores %}
+                <tr>
+                    <td>{{proveedor.nombre}} {{proveedor.apellido}}</td>
+                    <td>{{proveedor.razonSocial}}</td>
+                    <td>{{proveedor.direccion}}</td>
+                    <td>{{proveedor.codigoPostal}}</td>
+                    <td>{{proveedor.telefono}}</td>
+                    <td>{{proveedor.eMail}}</td>
+                    <td>{{proveedor.form_pago}}</td>
+                    <td>{{proveedor.codigo_Proveedor}}</td>
+                    <td>{{proveedor.tipo_Cliente}}</td>
+                </tr>
+                    {% endfor %}
+            </table>
+        </center>
+
+        <p> Para agregar un nuevo PROVEEDOR, click  <a href="{% url '07_AgregaProveedor' %}"> ACA -</a> </p>
 
         <li>
             <a href="{% url '04_AcercadeCoderPharma' %}"> VOLVER - </a>

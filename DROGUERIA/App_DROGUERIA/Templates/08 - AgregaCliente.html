@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrega Cliente</title>
+</head>
+<body>
+    <h1> AGREGAR CLIENTE </h1>
+    <br>
+    <br>
+
+    <form action="{% url '08_AgregaCliente' %}" method="POST"> {% csrf_token %}
+       <p> Nombre: <input type="text" name="nombre"></p>
+       <p> Apellido: <input type="text" name="apellido"></p>
+       <p> Razon Social: <input type="text" name="razonSocial"></p>
+       <p> Direccion: <input type="text" name="direccion"></p>
+       <p> Codigo Postal: <input type="text" name="codigoPostal"></p>
+       <p> Teléfono: <input type="number" name="telefono"></p>
+       <p> E-mail: <input type="text" name="eMail"></p>
+       <p> Forma de Pago: <input type="text" name="form_pago"></p>
+       <p> Codigo Cliente : <input type="number" name="codigo_Cliente"></p>
+       <p> Tipo Cliente: <input type="text" name="tipo_Cliente"></p>
+       <input type="submit" value="Agregar">
+    </form>
+
+
+    <li>
+        <a href="{% url '08_Clientes' %}"> VOLVER - </a>
+    </li>
+
+
+</body>
+</html>
