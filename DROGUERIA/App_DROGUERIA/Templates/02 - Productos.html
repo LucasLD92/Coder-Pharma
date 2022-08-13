@@ -1,29 +1,12 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRODUCTOS</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
+{% extends '00 - ORIGEN (b).html' %}   
+{% load static %}
+
+
+{% block blockname %}    
 </head>
     <body>
-        <center>
-            <nav class="navbar navbar-light bg-light static-top">
-                <div class="container">
-                    <a class="navbar-brand" href="{% url '01_Inicio' %}">INICIO - </a>
-                    <a class="navbar-brand" href="{% url '02_Productos' %}">PRODUCTOS - </a>
-                    <a class="navbar-brand" href="{% url '03_Contacto' %}">CONTACTO - </a>
-                    <a class="navbar-brand" href="{% url '04_AcercadeCoderPharma' %}">ACERCA DE CODERPHARMA - </a>
-                    <a class="btn btn-primary" href="!#">INICIAR</a>
-                </div>
-            </nav>
-        </center>
-        
-        <h1> <Center> VADEMECUM </Center> </h1>
+        <br>
+        <h1> <Center> NUESTRO VADEMECUM </Center> </h1>
         <br>
         <br>
         <br>
@@ -60,3 +43,4 @@
     
     </body>
 </html>
+{% endblock blockname %}
