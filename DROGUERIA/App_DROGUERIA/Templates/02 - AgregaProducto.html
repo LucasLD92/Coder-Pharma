@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrega Producto</title>
+</head>
+<body>
+    <h1> Aca se agregan los productos </h1>
+    <br>
+    <br>
+
+    <form action="{% url '02_AgregaProducto' %}" method="POST"> {% csrf_token %}
+       <p> Monodroga: <input type="text" name="monodroga"></p>
+       <p> Marca    : <input type="text" name="marca"></p>
+       <p> Presentacion: <input type="text" name="presentacion"></p>
+       <p> Forma Farmaceutica: <input type="text" name="formFarmaceutica"></p>
+       <p> Certificado ANMAT: <input type="number" name="certificado"></p>
+       <p> Código Producto: <input type="text" name="codigoProducto"></p>
+       <p> Stock: <input type="number" name="stock"></p>
+       <input type="submit" value="Agregar">
+    </form>
+
+
+    <li>
+        <a href="{% url '02_Productos' %}"> VOLVER - </a>
+    </li>
+
+
+</body>
+</html>

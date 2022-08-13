@@ -4,6 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EMPLEADOS</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
     <body>
         <nav class="navbar navbar-light bg-light static-top">
@@ -22,6 +27,38 @@
         <br>
         <br>
         <p> Acá detallamos a los empleados brevemente... </p>
+
+        <center>
+            <table style="width: 1250px;">
+                <tr>
+                    <th>Nombre y Apellido </th>
+                    <th>Dirección</th>
+                    <th>Código Postal</th>
+                    <th>Teléfono</th>
+                    <th>E-Mail</th>
+                    <th>Puesto</th>
+                    <th>Cargo</th>
+                    <th>Horario de Ingreso</th>
+                    <th>Horario de Saluda</th>
+                </tr>
+                    {% for empleado in Personal %}
+                <tr>
+                    <td>{{empleado.nombre}} {{empleado.apellido}}</td>
+                    <td>{{empleado.direccion}}</td>
+                    <td>{{empleado.codigoPostal}}</td>
+                    <td>{{empleado.telefono}}</td>
+                    <td>{{empleado.eMail}}</td>
+                    <td>{{empleado.puesto}}</td>
+                    <td>{{empleado.cargo}}</td>
+                    <td>{{empleado.horarioIngreso}}</td>
+                    <td>{{empleado.horarioSalida}}</td>
+                </tr>
+                    {% endfor %}
+            </table>
+        </center>
+
+        <p> Para agregar un nuevo EMPLEADO, click  <a href="{% url '06_AgregaEmpleado' %}"> ACA -</a> </p>
+
         <p> Estaria bueno poner algo como "POSTULATE" y que te deje enviar un CV... </p>
 
 

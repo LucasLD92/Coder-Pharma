@@ -29,17 +29,68 @@ def Clientes (request):
 
 # //////// Funciones ////////
 # Agrega Cliente
+def AgregaCliente(request):
+    if request.method == 'POST':
+        producto = PRODUCTO(monodroga=request.POST['monodroga'], marca=request.POST['marca'], presentacion=request.POST['presentacion'], formFarmaceutica=request.POST['formFarmaceutica'], certificado=request.POST['certificado'], codigoProducto=request.POST['codigoProducto'], stock=request.POST['stock'])
+        producto.save()
+        return render(request, "01 - Inicio.html")
+    return render(request, "02 - AgregaProducto.html")
 # Edita Cliente
 # Elimina Cliente
 # Buscar Cliente
 
+
 # Agrega Proveedor
+def AgregaProveedor(request):
+    if request.method == 'POST':
+        producto = PRODUCTO(monodroga=request.POST['monodroga'], marca=request.POST['marca'], presentacion=request.POST['presentacion'], formFarmaceutica=request.POST['formFarmaceutica'], certificado=request.POST['certificado'], codigoProducto=request.POST['codigoProducto'], stock=request.POST['stock'])
+        producto.save()
+        return render(request, "01 - Inicio.html")
+    return render(request, "02 - AgregaProducto.html")
 # Edita Proveedor
 # Elimina Proveedor
 # Buscar Proveedor
 
 
-# Agrega Producto
+# Agrega Producto <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
+def AgregaProducto(request):
+
+    if request.method == 'POST':
+        producto = PRODUCTO(
+            monodroga=request.POST['monodroga'],
+            marca=request.POST['marca'],
+            presentacion=request.POST['presentacion'],
+            formFarmaceutica=request.POST['formFarmaceutica'],
+            certificado=request.POST['certificado'],
+            codigoProducto=request.POST['codigoProducto'],
+            stock=request.POST['stock'])
+        producto.save()
+        return render(request, "01 - Inicio.html")
+
+    return render(request, "02 - AgregaProducto.html")
 # Edita Producto
 # Elimina Producto
 # Buscar Producto
+
+# Agrega Empleado <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
+def AgregaEmpleado(request):
+
+    if request.method == 'POST':
+        empleado = EMPLEADO(
+        nombre=request.POST['nombre'],
+        apellido=request.POST['apellido'],
+        direccion=request.POST['direccion'],
+        codigoPostal=request.POST['codigoPostal'],
+        telefono=request.POST['telefono'],
+        eMail=request.POST['eMail'],
+        puesto=request.POST['puesto'],
+        cargo=request.POST['cargo'],
+        horarioIngreso=request.POST['horarioIngreso'],
+        horarioSalida=request.POST['horarioSalida'])
+        empleado.save()
+        return render(request, "01 - Inicio.html")
+
+    return render(request, "06 - AgregaEmpleado.html")
+# Edita Proveedor
+# Elimina Proveedor
+# Buscar Proveedor

@@ -13,7 +13,6 @@ class DIRECTORIO(models.Model):
 
     def __str__(self) -> str:
         return f'Apellido y nombre: {self.apellido}, {self.nombre} || Edad: {self.edad} || Cargo  {self.cargo}'
-
 class EMPLEADO(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
@@ -57,7 +56,6 @@ class PROVEEDORES(models.Model):
 
     def __str__(self) -> str:
         return f'Nombre y Apellido: {self.nombre} {self.apellido} - Razon Social: {self.razonSocial} - Direccion: {self.direccion} - C.P.: {self.codigoPostal} - Teléfono: {self.telefono} - E-mail: {self.eMail} - Forma de Pago: {self.form_pago} - Código Proveedor {self.codigo_Proveedor} - Tipo Cliente: {self.tipo_Cliente}'
-
 class CLIENTES(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
