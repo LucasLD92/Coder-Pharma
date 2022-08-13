@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from App_DROGUERIA.views import (Inicio, Productos, Contacto,
 AcercadeCoderPharma, Directorio, Empleados, Proveedores, Clientes,
-AgregaProducto, AgregaCliente, AgregaProveedor, AgregaEmpleado
+AgregaProducto, AgregaCliente, AgregaProveedor, AgregaEmpleado, ORIGEN
 )
 
 urlpatterns = [
@@ -18,4 +18,5 @@ urlpatterns = [
     path('AgregaProveedor', AgregaProveedor, name = "07_AgregaProveedor"),    
     path('Clientes', Clientes, name = "08_Clientes"),
     path('AgregaCliente', AgregaCliente, name = "08_AgregaCliente"),
+    path('ORIGEN', ORIGEN),
 ]

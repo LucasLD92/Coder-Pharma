@@ -26,6 +26,8 @@ def Clientes (request):
     clientes = CLIENTES.objects.all()
     return render(request,"08 - Clientes.html", {"Clientes": clientes})
 
+def ORIGEN (request):
+    return render(request, "00 - ORIGEN.html")
 
 # //////// Funciones ////////
 # Agrega Cliente <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
