@@ -4,7 +4,7 @@
 
 {% block blockname %}   
     <body>
-        <h1> PROVEEDORES </h1>
+        <h1 class="text-center"> PROVEEDORES </h1>
         <br>
         <br>
         <br>
@@ -13,6 +13,12 @@
         <p> Funciones de agregar proveedor-editar-eliminar</p>
 
         <center>
+            <h4 class="text-center"> Buscar Proveedor </h4>
+            <form action="{% url '07_BuscarProveedor' %}" method="GET"> {% csrf_token %}
+            <p><input type="text" name="nombre">
+            <input type="submit" value="BUSCAR">
+            </p>
+
             <table style="width: 1250px;">
                 <tr>
                     <th>Nombre y Apellido </th>

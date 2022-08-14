@@ -5,6 +5,8 @@ from App_DROGUERIA.models import DIRECTORIO, EMPLEADO,PRODUCTO,PROVEEDORES,CLIEN
 # Create your views here.
 
 # //////// Visualizacion de Templates ////////
+def ORIGEN (request):
+    return render(request, "00 - ORIGEN.html")
 def Inicio(request):
     return render(request,"01 - Inicio.html")
 def Productos(request):
@@ -24,10 +26,9 @@ def Proveedores (request):
     return render(request,"07 - Proveedores.html", {"Proveedores": proveedores})
 def Clientes (request):
     clientes = CLIENTES.objects.all()
-    return render(request,"08 - Clientes.html", {"Clientes": clientes})
+    return render(request,"08 - Clientes.html", {"Clientes": clientes}) 
 
-def ORIGEN (request):
-    return render(request, "00 - ORIGEN.html")
+
 
 # //////// Funciones ////////
 # Agrega Cliente <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
@@ -74,7 +75,16 @@ def AgregaProveedor(request):
 # Edita Proveedor
 # Elimina Proveedor
 # Buscar Proveedor
-
+def BusquedaProveedor(request):
+    return render(request, "07 - BusquedaResultado.html")
+def BuscarProveedor(request):
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        proveedor = PROVEEDORES.objects.filter(nombre__icontains=nombre)
+        return render(request,"07 - BusquedaResultado.html", {"proveedor": proveedor, "nombre": nombre})
+    else:
+        resultado = "No hay resultados"
+    return HttpResponse(resultado)
 
 # Agrega Producto <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
 def AgregaProducto(request):
@@ -94,7 +104,17 @@ def AgregaProducto(request):
     return render(request, "02 - AgregaProducto.html")
 # Edita Producto
 # Elimina Producto
-# Buscar Producto
+# Buscar Producto <- 14/08_Lucas: Listo! Funciona :D - FALTA PULIR DETALLES.
+def BusquedaProducto(request):
+    return render(request, "02 - BusquedaProducto.html")
+def BuscarProducto(request):
+    if request.GET["monodroga"]:
+        monodroga = request.GET["monodroga"]
+        producto = PRODUCTO.objects.filter(monodroga__icontains=monodroga)
+        return render(request,"02 - BusquedaResultado.html", {"producto": producto, "monodroga": monodroga})
+    else:
+        resultado = "No hay resultados"
+    return HttpResponse(resultado)
 
 # Agrega Empleado <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
 def AgregaEmpleado(request):
@@ -115,6 +135,6 @@ def AgregaEmpleado(request):
         return render(request, "01 - Inicio.html")
 
     return render(request, "06 - AgregaEmpleado.html")
-# Edita Proveedor
-# Elimina Proveedor
-# Buscar Proveedor
+# Edita Empleado
+# Elimina Empleado
+# Buscar Empleado
