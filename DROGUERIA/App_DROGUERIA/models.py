@@ -69,5 +69,5 @@ class CLIENTES(models.Model):
     tipo_Cliente= models.CharField(max_length=50) # Clinica, Hospitales, Ministerios, Municipio, Gobierno Provincial, etc
 
     def __str__(self) -> str:
-        return f'Nombre y Apellido: {self.nombre} {self.apellido} - Razon Social: {self.razonSocial} - Direccion: {self.direccion} - C.P.: {self.codigoPostal} - Teléfono: {self.telefono} - E-mail: {self.eMail} - Forma de Pago: {self.form_pago} - Código Proveedor {self.codigo_Cliente} - Tipo Cliente: {self.tipo_Cliente}'
+        return f'Nombre y Apellido: {self.nombre} {self.apellido} - Razon Social: {self.razonSocial} - Direccion: {self.direccion} - C.P.: {self.codigoPostal} - Teléfono: {self.telefono} - E-mail: {self.eMail} - Forma de Pago: {self.form_pago} - Código Proveedor: {self.codigo_Cliente} - Tipo Cliente: {self.tipo_Cliente}'
 

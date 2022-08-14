@@ -1,7 +1,7 @@
 {% extends '00 - ORIGEN (b).html' %}
 {% load static %}
 
-<!-- RESULTADO DE BUSQUEDA PARA PROVEEDORES -->
+<!-- RESULTADO DE BUSQUEDA PARA CLIENTES -->
 
 {% block blockname %}
     <br>
@@ -10,7 +10,7 @@
 
     <p>Resultados de la busqueda para: '{{nombre}}'</p>
         
-        {% if proveedor %}
+        {% if cliente %}
         <center>
         <table style="width: 1250px;">
             <tr>
@@ -21,10 +21,10 @@
                 <th class="text-center">Teléfono</th>
                 <th class="text-center">E-Mail</th>
                 <th class="text-center">Forma de Pago</th>
-                <th class="text-center">Codigo Proveedor</th>
+                <th class="text-center">Codigo Cliente</th>
                 <th class="text-center">Codigo Cliente</th>
             </tr>
-                {% for resultado in proveedor %}
+                {% for resultado in cliente %}
             <tr>
                 <td>{{resultado.nombre}} {{resultado.apellido}}</td>
                 <td>{{resultado.razonSocial}}</td>
@@ -33,7 +33,7 @@
                 <td>{{resultado.telefono}}</td>
                 <td>{{resultado.eMail}}</td>
                 <td>{{resultado.form_pago}}</td>
-                <td>{{resultado.codigo_Proveedor}}</td>
+                <td>{{resultado.codigo_Cliente}}</td>
                 <td>{{resultado.tipo_Cliente}}</td>
             </tr>
                 {% endfor %}
@@ -46,7 +46,7 @@
             </p>
             {% endif %}
     
-        <p><a href="{% url '07_Proveedores' %}"> VOLVER </a></p>
+        <p><a href="{% url '08_Clientes' %}"> VOLVER </a></p>
  
 
 {% endblock blockname %}

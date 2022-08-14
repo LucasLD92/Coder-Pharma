@@ -50,7 +50,16 @@ def AgregaCliente(request):
     return render(request, "08 - AgregaCliente.html")
 # Edita Cliente
 # Elimina Cliente
-# Buscar Cliente
+# Buscar Cliente <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
+def BuscarCliente(request):
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        cliente = CLIENTES.objects.filter(nombre__icontains=nombre)
+        return render(request,"08 - BusquedaResultado.html", {"cliente": cliente, "nombre": nombre})
+    else:
+        resultado = "No hay resultados"
+    return HttpResponse(resultado)
+
 
 
 # Agrega Proveedor <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
@@ -74,9 +83,7 @@ def AgregaProveedor(request):
     return render(request, "07 - AgregaProveedor.html")
 # Edita Proveedor
 # Elimina Proveedor
-# Buscar Proveedor
-def BusquedaProveedor(request):
-    return render(request, "07 - BusquedaResultado.html")
+# Buscar Proveedor <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
 def BuscarProveedor(request):
     if request.GET["nombre"]:
         nombre = request.GET["nombre"]
@@ -104,9 +111,7 @@ def AgregaProducto(request):
     return render(request, "02 - AgregaProducto.html")
 # Edita Producto
 # Elimina Producto
-# Buscar Producto <- 14/08_Lucas: Listo! Funciona :D - FALTA PULIR DETALLES.
-def BusquedaProducto(request):
-    return render(request, "02 - BusquedaProducto.html")
+# Buscar Producto <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
 def BuscarProducto(request):
     if request.GET["monodroga"]:
         monodroga = request.GET["monodroga"]
@@ -137,4 +142,12 @@ def AgregaEmpleado(request):
     return render(request, "06 - AgregaEmpleado.html")
 # Edita Empleado
 # Elimina Empleado
-# Buscar Empleado
+# Buscar Empleado <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
+def BuscarEmpleado(request):
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        empleado = EMPLEADO.objects.filter(nombre__icontains=nombre)
+        return render(request,"06 - BusquedaResultado.html", {"empleado": empleado, "nombre": nombre})
+    else:
+        resultado = "No hay resultados"
+    return HttpResponse(resultado)
