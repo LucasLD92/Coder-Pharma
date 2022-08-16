@@ -7,7 +7,12 @@
     <h1 class="text-center">AGREGAR EMPLEADO</h1>
     <br>
     <br>
-    <form action="{% url '06_AgregaEmpleado' %}" method="POST"> {% csrf_token %}
+    <form action="" method="POST"> 
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <!--
        <p> Nombre: <input type="text" name="nombre"></p>
        <p> Apellido: <input type="text" name="apellido"></p>
        <p> Direccion: <input type="text" name="direccion"></p>
@@ -18,6 +23,8 @@
        <p> Cargo: <input type="text" name="cargo"></p>
        <p> Horario Ingreso: <input type="time" name="horarioIngreso"></p>
        <p> Horario Salida: <input type="time" name="horarioSalida"></p>
+        -->
+
        <input type="submit" value="Agregar">
     </form>
 

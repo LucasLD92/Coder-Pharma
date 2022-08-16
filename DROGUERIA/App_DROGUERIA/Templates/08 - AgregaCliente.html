@@ -8,8 +8,13 @@
     <br>
     <br>
 
-    <form action="{% url '08_AgregaCliente' %}" method="POST"> {% csrf_token %}
-       <p> Nombre: <input type="text" name="nombre"></p>
+    <form action="" method="POST"> 
+        {% csrf_token %}
+        
+        {{form.as_p}}
+       
+        <!--
+        <p> Nombre: <input type="text" name="nombre"></p>
        <p> Apellido: <input type="text" name="apellido"></p>
        <p> Razon Social: <input type="text" name="razonSocial"></p>
        <p> Direccion: <input type="text" name="direccion"></p>
@@ -19,6 +24,8 @@
        <p> Forma de Pago: <input type="text" name="form_pago"></p>
        <p> Codigo Cliente : <input type="number" name="codigo_Cliente"></p>
        <p> Tipo Cliente: <input type="text" name="tipo_Cliente"></p>
+       -->
+
        <input type="submit" value="Agregar">
     </form>
 

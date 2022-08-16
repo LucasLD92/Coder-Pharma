@@ -20,9 +20,10 @@
         <input type="submit" value="BUSCAR">
         </p>
 
-    </form>
+        </form>
         <table style="width: 1250px;">
             <tr>
+                <th class="text-center">Numero</th>
                 <th class="text-center">Monodroga</th>
                 <th class="text-center">Marca</th>
                 <th class="text-center">Presentacion</th>
@@ -30,9 +31,11 @@
                 <th class="text-center">Certificado ANMAT</th>
                 <th class="text-center">Código Producto</th>
                 <th class="text-center">Stock</th>
+                <th class="text-center">Accion</th>
             </tr>
                 {% for productos in Vademecum %}
             <tr>
+                <th scope="row">{{forloop.counter}}</th>
                 <td>{{productos.monodroga}}</td>
                 <td class="text-center">{{productos.marca}}</td>
                 <td>{{productos.presentacion}}</td>
@@ -40,6 +43,10 @@
                 <td class="text-center"><b>{{productos.certificado}}</b></td>
                 <td>{{productos.codigoProducto}}</td>
                 <td>{{productos.stock}}</td>
+                <td>
+                    <a href="{% url '02_EditaProducto' productos.id %}">Editar |</a>
+                    <a href="{% url '02_EliminaProducto' productos.id %}">Eliminar</a> 
+                </td>
             </tr>
                 {% endfor %}
         </table>

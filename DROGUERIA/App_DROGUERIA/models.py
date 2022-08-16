@@ -52,10 +52,10 @@ class PROVEEDORES(models.Model):
     eMail = models.EmailField(max_length=50)
     form_pago = models.CharField(max_length=50)
     codigo_Proveedor = models.CharField(max_length=50)
-    tipo_Cliente = models.CharField(max_length=50)
+    tipo_Proveedor = models.CharField(max_length=50)
 
     def __str__(self) -> str:
-        return f'Nombre y Apellido: {self.nombre} {self.apellido} - Razon Social: {self.razonSocial} - Direccion: {self.direccion} - C.P.: {self.codigoPostal} - Teléfono: {self.telefono} - E-mail: {self.eMail} - Forma de Pago: {self.form_pago} - Código Proveedor {self.codigo_Proveedor} - Tipo Cliente: {self.tipo_Cliente}'
+        return f'Nombre y Apellido: {self.nombre} {self.apellido} - Razon Social: {self.razonSocial} - Direccion: {self.direccion} - C.P.: {self.codigoPostal} - Teléfono: {self.telefono} - E-mail: {self.eMail} - Forma de Pago: {self.form_pago} - Código Proveedor {self.codigo_Proveedor} - Tipo Cliente: {self.tipo_Proveedor}'
 class CLIENTES(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)

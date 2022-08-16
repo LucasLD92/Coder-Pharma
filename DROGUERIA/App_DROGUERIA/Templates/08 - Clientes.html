@@ -16,6 +16,7 @@
         <center>
             <table style="width: 1250px;">
                 <tr>
+                    <th>Numero</th>
                     <th>Nombre y Apellido </th>
                     <th>Razón Social</th>
                     <th>Dirección</th>
@@ -24,10 +25,12 @@
                     <th>E-Mail</th>
                     <th>Forma de Pago</th>
                     <th>Codigo Cliente</th>
-                    <th>Codigo Cliente</th>
+                    <th>Tipo Cliente</th>
+                    <th>Accion</th>
                 </tr>
                     {% for cliente in Clientes %}
                 <tr>
+                    <th scope="row">{{forloop.counter}}</th>
                     <td>{{cliente.nombre}} {{cliente.apellido}}</td>
                     <td>{{cliente.razonSocial}}</td>
                     <td>{{cliente.direccion}}</td>
@@ -37,6 +40,11 @@
                     <td>{{cliente.form_pago}}</td>
                     <td>{{cliente.codigo_Cliente}}</td>
                     <td>{{cliente.tipo_Cliente}}</td>
+                    <td>
+                        <a href="{% url '08_EditaCliente' cliente.id %}">Editar |</a>
+                        <a href="{% url '08_EliminaCliente' cliente.id %}">Eliminar</a> 
+                    </td>
+                    
                 </tr>
                     {% endfor %}
             </table>

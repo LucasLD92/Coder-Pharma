@@ -23,7 +23,8 @@
                     <th>Puesto</th>
                     <th>Cargo</th>
                     <th>Horario de Ingreso</th>
-                    <th>Horario de Saluda</th>
+                    <th>Horario de Salida</th>
+                    <th>Accion</th>
                 </tr>
                     {% for empleado in Personal %}
                 <tr>
@@ -36,6 +37,10 @@
                     <td>{{empleado.cargo}}</td>
                     <td>{{empleado.horarioIngreso}}</td>
                     <td>{{empleado.horarioSalida}}</td>
+                    <td>
+                        <a href="{% url '06_EditaEmpleado' empleado.id %}">Editar |</a>
+                        <a href="{% url '06_EliminaEmpleado' empleado.id %}">Eliminar</a> 
+                    </td>
                 </tr>
                     {% endfor %}
             </table>

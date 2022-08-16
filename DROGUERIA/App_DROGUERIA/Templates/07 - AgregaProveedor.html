@@ -1,4 +1,9 @@
-<html lang="en">
+{% extends '00 - ORIGEN (b).html' %}   
+{% load static %}
+
+
+{% block blockname %}
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,17 +15,24 @@
     <br>
     <br>
 
-    <form action="{% url '07_AgregaProveedor' %}" method="POST"> {% csrf_token %}
+    <form action="" method="POST"> 
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <!--
        <p> Nombre: <input type="text" name="nombre"></p>
        <p> Apellido: <input type="text" name="apellido"></p>
        <p> Razon Social: <input type="text" name="razonSocial"></p>
        <p> Direccion: <input type="text" name="direccion"></p>
-       <p> Codigo Postal: <input type="text" name="codigoPostal"></p>
+       <p> Codigo Postal: <input type="number" name="codigoPostal"></p>
        <p> Teléfono: <input type="number" name="telefono"></p>
        <p> E-mail: <input type="text" name="eMail"></p>
        <p> Forma de Pago: <input type="text" name="form_pago"></p>
        <p> Codigo Proveedor : <input type="number" name="codigo_Proveedor"></p>
-       <p> Tipo Cliente: <input type="text" name="tipo_Cliente"></p>
+       <p> Tipo Proveedor: <input type="text" name="tipo_Proveedor"></p>
+
+       -->
        <input type="submit" value="Agregar">
     </form>
 
@@ -32,3 +44,4 @@
 
 </body>
 </html>
+{% endblock blockname %}

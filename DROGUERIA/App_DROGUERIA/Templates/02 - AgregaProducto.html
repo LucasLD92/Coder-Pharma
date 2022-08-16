@@ -8,7 +8,12 @@
     <br>
     <br>
 
-    <form action="{% url '02_AgregaProducto' %}" method="POST"> {% csrf_token %}
+    <form action="" method="POST"> 
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <!--
        <p> Monodroga: <input type="text" name="monodroga"></p>
        <p> Marca    : <input type="text" name="marca"></p>
        <p> Presentacion: <input type="text" name="presentacion"></p>
@@ -16,7 +21,9 @@
        <p> Certificado ANMAT: <input type="number" name="certificado"></p>
        <p> Código Producto: <input type="text" name="codigoProducto"></p>
        <p> Stock: <input type="number" name="stock"></p>
-       <input type="submit" value="Agregar">
+        -->
+       
+        <input type="submit" value="Agregar">
     </form>
 
 
