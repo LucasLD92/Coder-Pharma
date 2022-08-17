@@ -8,6 +8,7 @@
     <br>
     <br>
 
+
     <form action="" method="POST"> 
         {% csrf_token %}
         
@@ -26,15 +27,26 @@
        <p> Tipo Cliente: <input type="text" name="tipo_Cliente"></p>
        -->
 
+
+       <form action="{% url '08_AgregaCliente' %}" method="POST"> {% csrf_token %}
+        <p> Nombre: <input type="text" name="nombre" placeholder="Nombre"></p>
+        <p> Apellido: <input type="text" name="apellido" placeholder="Apellido"></p>
+        <p> Razon Social: <input type="text" name="razonSocial" placeholder="Razon Social"></p>
+        <p> Direccion: <input type="text" name="direccion" placeholder="Direccion"></p>
+        <p> Codigo Postal: <input type="text" name="codigoPostal" placeholder="Código Postal"></p>
+        <p> Teléfono: <input type="number" name="telefono" placeholder="Teléfono"></p>
+        <p> E-mail: <input type="text" name="eMail" placeholder="E-Mail"></p>
+        <p> Forma de Pago: <input type="text" name="form_pago" placeholder="Forma de Pago"></p>
+        <p> Codigo Cliente : <input type="number" name="codigo_Cliente" placeholder="Código Cliente"></p>
+        <p> Tipo Cliente: <input type="text" name="tipo_Cliente" placeholder="Tipo Cliente"></p>
+
        <input type="submit" value="Agregar">
     </form>
-
-
+    <hr>
     <li>
         <a href="{% url '08_Clientes' %}"> VOLVER - </a>
     </li>
-
-
+    <br>
 </body>
 </html>
 {% endblock blockname %}

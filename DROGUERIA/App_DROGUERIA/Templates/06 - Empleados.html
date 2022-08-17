@@ -13,6 +13,11 @@
         <p> Acá detallamos a los empleados brevemente... </p>
 
         <center>
+            <h4 class="text-center"> Buscar cliente </h4>
+            <form action="{% url '06_BuscarEmpleado' %}" method="GET"> {% csrf_token %}
+            <p><input type="text" name="nombre">
+            <input type="submit" value="BUSCAR">
+            </p>
             <table style="width: 1250px;">
                 <tr>
                     <th>Nombre y Apellido </th>
@@ -49,8 +54,10 @@
         <p> Para agregar un nuevo EMPLEADO, click  <a href="{% url '06_AgregaEmpleado' %}"> ACA -</a> </p>
 
         <p> Estaria bueno poner algo como "POSTULATE" y que te deje enviar un CV... </p>
-
-
+        <hr>
+        <li>
+            <a href="{% url '04_AcercadeCoderPharma' %}"> VOLVER - </a>
+        </li>
     </body>
 </html>
 {% endblock blockname %}

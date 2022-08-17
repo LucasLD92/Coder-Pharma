@@ -1,7 +1,7 @@
 {% extends '00 - ORIGEN (b).html' %}
 {% load static %}
 
-<!-- RESULTADO DE BUSQUEDA PARA PROVEEDORES -->
+<!-- RESULTADO DE BUSQUEDA PARA EMPLEADOS -->
 
 {% block blockname %}
     <br>
@@ -10,31 +10,31 @@
 
     <p>Resultados de la busqueda para: '{{nombre}}'</p>
         
-        {% if proveedor %}
+        {% if empleado %}
         <center>
         <table style="width: 1250px;">
             <tr>
                 <th class="text-center">Nombre y Apellido </th>
-                <th class="text-center">Razón Social</th>
                 <th class="text-center">Dirección</th>
                 <th class="text-center">Código Postal</th>
                 <th class="text-center">Teléfono</th>
                 <th class="text-center">E-Mail</th>
-                <th class="text-center">Forma de Pago</th>
-                <th class="text-center">Codigo Proveedor</th>
-                <th class="text-center">Codigo Cliente</th>
+                <th class="text-center">Puesto</th>
+                <th class="text-center">Cargo</th>
+                <th class="text-center">horarioIngreso</th>                
+                <th class="text-center">horarioSalida</th>
             </tr>
-                {% for resultado in proveedor %}
+                {% for resultado in empleado %}
             <tr>
                 <td>{{resultado.nombre}} {{resultado.apellido}}</td>
-                <td>{{resultado.razonSocial}}</td>
                 <td>{{resultado.direccion}}</td>
                 <td>{{resultado.codigoPostal}}</td>
                 <td>{{resultado.telefono}}</td>
                 <td>{{resultado.eMail}}</td>
-                <td>{{resultado.form_pago}}</td>
-                <td>{{resultado.codigo_Proveedor}}</td>
-                <td>{{resultado.tipo_Cliente}}</td>
+                <td>{{resultado.puesto}}</td>
+                <td>{{resultado.cargo}}</td>
+                <td>{{resultado.horarioIngreso}}</td>
+                <td>{{resultado.horarioSalida}}</td>
             </tr>
                 {% endfor %}
             </table>
@@ -46,7 +46,7 @@
             </p>
             {% endif %}
     
-        <p><a href="{% url '07_Proveedores' %}"> VOLVER </a></p>
+        <p><a href="{% url '06_Empleados' %}"> VOLVER </a></p>
  
 
 {% endblock blockname %}

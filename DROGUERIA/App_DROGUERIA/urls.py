@@ -4,7 +4,10 @@ from App_DROGUERIA.views import (Inicio, Productos, Contacto,
 AcercadeCoderPharma, Directorio, Empleados, Proveedores, Clientes,
 AgregaProducto, AgregaCliente, AgregaProveedor, AgregaEmpleado, ORIGEN,
 BusquedaProducto, BuscarProducto, BusquedaProveedor, BuscarProveedor, EditaProveedor, EliminaProveedor,
-EditaProducto, EliminaProducto, EditaEmpleado, EliminaEmpleado
+EditaProducto, EliminaProducto, EditaEmpleado, EliminaEmpleado,
+
+BuscarProducto, BuscarProveedor, BuscarCliente, BuscarEmpleado
+
 )
 from .views import EditaCliente, EliminaCliente
 
@@ -22,6 +25,7 @@ urlpatterns = [
     path('Directorio', Directorio, name = "05_Directorio"),
     path('Empleados', Empleados, name = "06_Empleados"),
     path('AgregaEmpleado', AgregaEmpleado, name = "06_AgregaEmpleado"),
+
     path('EditaEmpleado/<empleado_id>', EditaEmpleado, name = "06_EditaEmpleado"),
     path('EliminaEmpleado/<empleado_id>', EliminaEmpleado, name = "06_EliminaEmpleado"),
     path('Proveedores/', Proveedores, name = "07_Proveedores"),
@@ -33,5 +37,14 @@ urlpatterns = [
     path('AgregaCliente', AgregaCliente, name = "08_AgregaCliente"),
     path('EditaCliente/<cliente_id>', EditaCliente, name = "08_EditaCliente"),
     path('EliminaCliente/<cliente_id>', EliminaCliente, name = "08_EliminaCliente"),
+
+    path('Buscar-Empleado', BuscarEmpleado, name = "06_BuscarEmpleado"),
+    path('Proveedores', Proveedores, name = "07_Proveedores"),
+    path('AgregaProveedor', AgregaProveedor, name = "07_AgregaProveedor"),    
+    path('Buscar-Proveedor', BuscarProveedor, name = "07_BuscarProveedor"),        
+    path('Clientes', Clientes, name = "08_Clientes"),
+    path('AgregaCliente', AgregaCliente, name = "08_AgregaCliente"),
+    path('Buscar-Cliente', BuscarCliente, name = "08_BuscarCliente"),
+
     path('ORIGEN', ORIGEN),
 ]

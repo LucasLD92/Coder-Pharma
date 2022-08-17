@@ -114,6 +114,7 @@ def EditaCliente(request, cliente_id):
 
 # Elimina Cliente
 
+
 def EliminaCliente(request, cliente_id):
 
     cliente = CLIENTES.objects.get(id=cliente_id)
@@ -123,7 +124,16 @@ def EliminaCliente(request, cliente_id):
 
 
 
-# Buscar Cliente
+# Buscar Cliente <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
+def BuscarCliente(request):
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        cliente = CLIENTES.objects.filter(nombre__icontains=nombre)
+        return render(request,"08 - BusquedaResultado.html", {"cliente": cliente, "nombre": nombre})
+    else:
+        resultado = "No hay resultados"
+    return HttpResponse(resultado)
+
 
 
 # Agrega Proveedor <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
@@ -217,9 +227,8 @@ def EliminaProveedor(request, proveedor_id):
 
 
 
-# Buscar Proveedor
-def BusquedaProveedor(request):
-    return render(request, "07 - BusquedaResultado.html")
+# Buscar Proveedor <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
+
 def BuscarProveedor(request):
     if request.GET["nombre"]:
         nombre = request.GET["nombre"]
@@ -228,6 +237,7 @@ def BuscarProveedor(request):
     else:
         resultado = "No hay resultados"
     return HttpResponse(resultado)
+
 
 # Agrega Producto <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
 def AgregaProducto(request):
@@ -302,6 +312,7 @@ def EditaProducto(request, producto_id):
 
 # Elimina Producto
 
+
 def EliminaProducto(request, producto_id):
 
     producto = PRODUCTO.objects.get(id=producto_id)
@@ -310,9 +321,8 @@ def EliminaProducto(request, producto_id):
     return redirect("02_Productos")
 
 
-# Buscar Producto <- 14/08_Lucas: Listo! Funciona :D - FALTA PULIR DETALLES.
-def BusquedaProducto(request):
-    return render(request, "02 - BusquedaProducto.html")
+# Buscar Producto <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
+
 def BuscarProducto(request):
     if request.GET["monodroga"]:
         monodroga = request.GET["monodroga"]
@@ -404,10 +414,21 @@ def EditaEmpleado(request, empleado_id):
 
 # Elimina Empleado
 
+
 def EliminaEmpleado(request, empleado_id):
 
     empleado = EMPLEADO.objects.get(id=empleado_id)
     empleado.delete()
 
     return redirect("06_Empleados")
-# Buscar Empleado
+
+# Buscar Empleado <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
+def BuscarEmpleado(request):
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        empleado = EMPLEADO.objects.filter(nombre__icontains=nombre)
+        return render(request,"06 - BusquedaResultado.html", {"empleado": empleado, "nombre": nombre})
+    else:
+        resultado = "No hay resultados"
+    return HttpResponse(resultado)
+
