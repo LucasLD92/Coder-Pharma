@@ -3,7 +3,7 @@ from django.urls import path
 from App_DROGUERIA.views import (Inicio, Productos, Contacto,
 AcercadeCoderPharma, Directorio, Empleados, Proveedores, Clientes,
 AgregaProducto, AgregaCliente, AgregaProveedor, AgregaEmpleado, ORIGEN,
-BusquedaProducto, BuscarProducto, BusquedaProveedor, BuscarProveedor, EditaProveedor, EliminaProveedor,
+BuscarProducto, BuscarProveedor, EditaProveedor, EliminaProveedor,
 EditaProducto, EliminaProducto, EditaEmpleado, EliminaEmpleado,
 
 BuscarProducto, BuscarProveedor, BuscarCliente, BuscarEmpleado

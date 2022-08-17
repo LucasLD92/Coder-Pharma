@@ -9,6 +9,10 @@
     <br>
 
 
+    <form action="" method="POST"> 
+        {% csrf_token %}
+
+        
 
         <!--
        <p> Monodroga: <input type="text" name="monodroga"></p>
@@ -21,7 +25,7 @@
         -->
        
         <input type="submit" value="Agregar">
-=======
+<!--
     <form action="{% url '02_AgregaProducto' %}" method="POST"> {% csrf_token %}
        <p> Monodroga: <input type="text" name="monodroga" placeholder="Monodroga"></p>
        <p> Marca    : <input type="text" name="marca" placeholder="Marca"></p>
@@ -31,7 +35,7 @@
        <p> Código Producto: <input type="text" name="codigoProducto" placeholder="Código Producto"></p>
        <p> Stock: <input type="number" name="stock" placeholder="0"></p>
        <input type="submit" value="Agregar">
->>>>>>> 81fafc52c1537c64d8849522feb8a5e511ab36d8
+-->
     </form>
 
 
