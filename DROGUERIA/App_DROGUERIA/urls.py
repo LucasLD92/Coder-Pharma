@@ -3,7 +3,7 @@ from django.urls import path
 from App_DROGUERIA.views import (Inicio, Productos, Contacto,
 AcercadeCoderPharma, Directorio, Empleados, Proveedores, Clientes,
 AgregaProducto, AgregaCliente, AgregaProveedor, AgregaEmpleado, ORIGEN,
-BuscarProducto, BuscarProveedor, BuscarCliente, BuscarEmpleado
+BuscarProducto, BuscarProveedor, BuscarCliente, BuscarEmpleado, ListaClientes
 )
 
 urlpatterns = [
@@ -23,5 +23,6 @@ urlpatterns = [
     path('Clientes', Clientes, name = "08_Clientes"),
     path('AgregaCliente', AgregaCliente, name = "08_AgregaCliente"),
     path('Buscar-Cliente', BuscarCliente, name = "08_BuscarCliente"),
+    path('ListaClientes', ListaClientes , name = "08_VistaCliente"),
     path('ORIGEN', ORIGEN),
 ]

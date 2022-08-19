@@ -48,6 +48,12 @@ def AgregaCliente(request):
         cliente.save()
         return render(request, "01 - Inicio.html")
     return render(request, "08 - AgregaCliente.html")
+
+def ListaClientes(request):
+    clientes = CLIENTES.objects.all()
+    contexto = {"clientes": clientes}
+    return render(request, "08 - VistaClientes.html", contexto)
+    
 # Edita Cliente
 # Elimina Cliente
 # Buscar Cliente <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.

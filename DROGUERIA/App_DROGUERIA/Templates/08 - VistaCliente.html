@@ -1,0 +1,19 @@
+{% extends '00 - ORIGEN (b).html' %}   
+{% load static %}
+
+
+{% block blockname %}
+
+    <h1>Lista de Clientes</h1>
+
+    <ul>
+        
+        {% for cliente in clientes %}
+
+            <li>{{cliente}}</li>
+            
+        {% endfor %}
+            
+    </ul>
+    
+{% endblock blockname %}
