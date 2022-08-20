@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from App_DROGUERIA.models import DIRECTORIO, EMPLEADO,PRODUCTO,PROVEEDORES,CLIENTES
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -157,3 +159,19 @@ def BuscarEmpleado(request):
     else:
         resultado = "No hay resultados"
     return HttpResponse(resultado)
+
+def LoginView(request):
+    if request.method == 'POST':
+        miFormulario = AuthenticationForm(request.POST)
+        if miFormulario.is_valid():
+            data = miFormulario.cleaned_data
+            usuario = data["username"]
+            psw = data["password"]
+            user = authenticate(username=usuario, password=psw)
+
+            if user:
+                login(request, user)
+                return render(request, "01 - Inicio.html", {"mensaje": f'Bienvenido {usuario}'})
+
+
+            return render(request, "01 - Inicio.html")
