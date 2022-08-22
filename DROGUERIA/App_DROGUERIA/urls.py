@@ -9,7 +9,8 @@ EditaProducto, EliminaProducto, EditaEmpleado, EliminaEmpleado,
 BuscarProducto, BuscarProveedor, BuscarCliente, BuscarEmpleado
 
 )
-from .views import EditaCliente, EliminaCliente
+from .views import EditaCliente, EliminaCliente, Loginview, Register
+from django.contrib.auth.views import LogoutView
 
 
 
@@ -45,6 +46,10 @@ urlpatterns = [
     path('Clientes', Clientes, name = "08_Clientes"),
     path('AgregaCliente', AgregaCliente, name = "08_AgregaCliente"),
     path('Buscar-Cliente', BuscarCliente, name = "08_BuscarCliente"),
+
+    path('Login/', Loginview, name = "09_Login"),
+    path('Registrate/', Register, name = "10_Registro"),
+    path('Logout/', LogoutView.as_view(template_name='11 - Logout.html'), name = "11_Logout"),
 
     path('ORIGEN', ORIGEN),
 ]
