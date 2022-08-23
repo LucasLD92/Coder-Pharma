@@ -1,3 +1,4 @@
+from tkinter.ttk import Style
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from App_DROGUERIA.models import DIRECTORIO, EMPLEADO,PRODUCTO,PROVEEDORES,CLIENTES
@@ -447,9 +448,9 @@ def Loginview(request):
             user = authenticate(username=usuario, password=psw)
             if user:
                 login(request, user)
-                return render(request, "01 - Inicio.html", {"mensaje": f'Bienvenido {usuario}'})
+                return render(request, "01 - Inicio.html", {"mensaje": 'Bienvenido/a {usuario}'})
             else:
-                return render(request, "01 - Inicio.html", {"mensaje": f'Datos incorrectos'})
+                return render(request, "01 - Inicio.html", {"mensaje": 'Datos incorrectos'})
 
         return render(request, "01 - Inicio.html")
 
