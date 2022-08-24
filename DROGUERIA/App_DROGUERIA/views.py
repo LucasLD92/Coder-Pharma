@@ -1,7 +1,11 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from App_DROGUERIA.models import DIRECTORIO, EMPLEADO,PRODUCTO,PROVEEDORES,CLIENTES
+from App_DROGUERIA.models import DIRECTORIO, EMPLEADO, IMAGENES_DIRECTORIO,PRODUCTO,PROVEEDORES,CLIENTES
 from .forms import CreaCliente, CreaEmpleado, CreaProducto, CreaProveedor
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.conf import settings
+from django.contrib import messages
 
 # Create your views here.
 
@@ -432,3 +436,24 @@ def BuscarEmpleado(request):
         resultado = "No hay resultados"
     return HttpResponse(resultado)
 
+# Envío de Email
+
+def Contactar(request):
+    if request.method == "POST":
+        name = request.POST["nombre"]
+        email = request.POST["email"]
+        subject = request.POST["asunto"]
+        message = request.POST["mensaje"]
+
+        template = render_to_string('09 - Email_Template.html', {'name': name, 'email': email, 'message': message})
+        
+        email = EmailMessage(subject, template, settings.EMAIL_HOST_USER, ['coderpharma@gmail.com'])
+
+        email.fail_silently = False
+        email.send()
+        
+
+        messages.success(request, 'Se ha enviado su consulta')
+        return redirect("09_Contacto")
+    else:
+        return render(request, "09 - Contacto.html")

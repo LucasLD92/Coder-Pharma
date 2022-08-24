@@ -10,7 +10,7 @@
         
         {% if producto %}
         <center>
-        <table style="width: 1250px;">
+        <table class="table table-striped">
             <tr>
                     <th>Monodroga</th>
                     <th>Marca</th>
@@ -19,6 +19,7 @@
                     <th>Certificado ANMAT</th>
                     <th>Código Producto</th>
                     <th>Stock</th>
+                    <th class="text-center">Accion</th>
             </tr>
                 {% for resultado in producto %}
             <tr>
@@ -29,6 +30,10 @@
                     <td class="text-center"><b>{{resultado.certificado}}</b></td>
                     <td>{{resultado.codigoProducto}}</td>
                     <td>{{resultado.stock}}</td>
+                    <td>
+                        <a style="color: black; text-decoration: none" href="{% url '02_EditaProducto' resultado.id %}">Editar</a> |
+                        <a style="color: black; text-decoration: none" href="{% url '02_EliminaProducto' resultado.id %}">Eliminar</a> 
+                    </td>
             </tr>
                 {% endfor %}
             </table>

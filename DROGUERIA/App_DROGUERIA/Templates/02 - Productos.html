@@ -21,7 +21,7 @@
         </p>
 
         </form>
-        <table style="width: 1250px;">
+        <table class="table table-striped" >
             <tr>
                 <th class="text-center">Numero</th>
                 <th class="text-center">Monodroga</th>
@@ -44,8 +44,8 @@
                 <td>{{productos.codigoProducto}}</td>
                 <td>{{productos.stock}}</td>
                 <td>
-                    <a href="{% url '02_EditaProducto' productos.id %}">Editar |</a>
-                    <a href="{% url '02_EliminaProducto' productos.id %}">Eliminar</a> 
+                    <a style="color: black; text-decoration: none" href="{% url '02_EditaProducto' productos.id %}">Editar</a> |
+                    <a style="color: black; text-decoration: none" href="{% url '02_EliminaProducto' productos.id %}">Eliminar</a> 
                 </td>
             </tr>
                 {% endfor %}

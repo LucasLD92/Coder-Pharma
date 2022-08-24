@@ -34,7 +34,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="{% url '02_Productos' %}">Productos | </a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url '03_Contacto' %}">Contacto | </a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url '09_Contacto' %}">Contacto | </a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url '04_AcercadeCoderPharma' %}">Acerca de Coder-Pharma | </a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url '05_Directorio' %}">Directorio | </a></li>
                             <li class="btn btn-primary" href="#signup">LOGIN</a>
@@ -52,13 +52,11 @@
         <footer class="bg-dark py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2022</div></div>
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Coder Pharma 2022</div></div>
                     <div class="col-auto">
-                        <a class="link-light small" href="#!">Privacy</a>
+                        <a class="link-light small" href="{% url '01_Inicio' %}">Inicio</a>
                         <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
+                        <a class="link-light small" href="{% url '05_Directorio' %}">Nosotros</a>
                     </div>
                 </div>
             </div>

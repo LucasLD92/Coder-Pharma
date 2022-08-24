@@ -27,7 +27,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="{% url '02_Productos' %}">Productos | </a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url '03_Contacto' %}">Contacto | </a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url '09_Contacto' %}">Contacto | </a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url '04_AcercadeCoderPharma' %}">Acerca de Coder-Pharma | </a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url '05_Directorio' %}">Directorio | </a></li>
                             <li class="btn btn-primary" href="#signup">LOGIN</a>
@@ -47,8 +47,8 @@
                                 </h1>
                                 <p class="lead fw-normal text-white-50 mb-4">Esta es una Drogueria ficticia sin fines de lucro creada para la presentacion del proyecto final del Curso PYTHON de la plataforma Coderhouse.</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                    <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Funcionalidades</a>
+                                    <a class="btn btn-outline-light btn-lg px-4" href="{% url '05_Directorio' %}">Sobre Nosotros</a>
                                 </div>
                             </div>
                         </div>
@@ -60,28 +60,28 @@
             <section class="py-5" id="features">
                 <div class="container px-5 my-5">
                     <div class="row gx-5">
-                        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">A better way to start building.</h2></div>
+                        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">Algunas de las funcionalidades del proyecto</h2></div>
                         <div class="col-lg-8">
                             <div class="row gx-5 row-cols-1 row-cols-md-2">
                                 <div class="col mb-5 h-100">
                                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                                    <h2 class="h5">Featured title</h2>
-                                    <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
+                                    <a class="h5" style="color: black; text-decoration: none" href="{% url '06_Empleados' %} ">Empleados</a>
+                                    <p class="mb-0">Visualizar, crear, editar y eliminar Empleados</p>
+                                </div>
+                                <div class="col mb-5 mb-md-0 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                                    <a class="h5" style="color: black; text-decoration: none" href="{% url '08_Clientes' %} ">Clientes</a>
+                                    <p class="mb-0">Visualizar, crear, editar y eliminar Clientes</p>
                                 </div>
                                 <div class="col mb-5 h-100">
                                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                                    <h2 class="h5">Featured title</h2>
-                                    <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
-                                </div>
-                                <div class="col mb-5 mb-md-0 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                                    <h2 class="h5">Featured title</h2>
-                                    <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
+                                    <a class="h5" style="color: black; text-decoration: none" href="{% url '07_Proveedores' %} ">Proveedores</a>
+                                    <p class="mb-0">Visualizar, crear, editar y eliminar Proveedores</p>
                                 </div>
                                 <div class="col h-100">
                                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                                    <h2 class="h5">Featured title</h2>
-                                    <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
+                                    <a class="h5" style="color: black; text-decoration: none" href="{% url '02_Productos' %} ">Productos</a>
+                                    <p class="mb-0">Visualizar, crear, editar y eliminar Productos </p>
                                 </div>
                             </div>
                         </div>
@@ -112,13 +112,11 @@
         <footer class="bg-dark py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2022</div></div>
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Coder Pharma 2022</div></div>
                     <div class="col-auto">
-                        <a class="link-light small" href="#!">Privacy</a>
+                        <a class="link-light small" href="{% url '01_Inicio' %}">Inicio</a>
                         <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
+                        <a class="link-light small" href="{% url '05_Directorio' %}">Nosotros</a>
                     </div>
                 </div>
             </div>

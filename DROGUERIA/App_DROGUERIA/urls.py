@@ -1,50 +1,46 @@
 from django.contrib import admin
 from django.urls import path
-from App_DROGUERIA.views import (Inicio, Productos, Contacto,
+from App_DROGUERIA.views import (Contactar, Inicio, Productos, Contacto,
 AcercadeCoderPharma, Directorio, Empleados, Proveedores, Clientes,
 AgregaProducto, AgregaCliente, AgregaProveedor, AgregaEmpleado, ORIGEN,
 BuscarProducto, BuscarProveedor, EditaProveedor, EliminaProveedor,
-EditaProducto, EliminaProducto, EditaEmpleado, EliminaEmpleado,
-
-BuscarProducto, BuscarProveedor, BuscarCliente, BuscarEmpleado
-
+EditaProducto, EliminaProducto, EditaEmpleado, EliminaEmpleado, 
+BuscarCliente, BuscarEmpleado, EditaCliente, EliminaCliente
 )
-from .views import EditaCliente, EliminaCliente
+
 
 
 
 urlpatterns = [
     path('', Inicio, name = "01_Inicio"),
+    path('Contacto', Contacto, name = "03_Contacto"),
+    path('AcercadeCoder-Pharma', AcercadeCoderPharma, name = "04_AcercadeCoderPharma"),
+    path('Directorio', Directorio, name = "05_Directorio"),
+    path('ORIGEN', ORIGEN),
+    path('Contactar', Contactar, name='09_Contacto'),
+#URLs Productos
     path('Productos', Productos, name = "02_Productos"),
     path('AgregaProducto', AgregaProducto, name = "02_AgregaProducto"),
     path('EditaProducto/<producto_id>', EditaProducto, name = "02_EditaProducto"),
     path('EliminaProducto/<producto_id>', EliminaProducto, name = "02_EliminaProducto"),
     path('Buscar-Producto', BuscarProducto, name = "02_BuscarProducto"), # Esta es la que sirve    
-    path('Contacto', Contacto, name = "03_Contacto"),
-    path('AcercadeCoder-Pharma', AcercadeCoderPharma, name = "04_AcercadeCoderPharma"),
-    path('Directorio', Directorio, name = "05_Directorio"),
+#URLs Empleados
     path('Empleados', Empleados, name = "06_Empleados"),
     path('AgregaEmpleado', AgregaEmpleado, name = "06_AgregaEmpleado"),
-
     path('EditaEmpleado/<empleado_id>', EditaEmpleado, name = "06_EditaEmpleado"),
     path('EliminaEmpleado/<empleado_id>', EliminaEmpleado, name = "06_EliminaEmpleado"),
+    path('Buscar-Empleado', BuscarEmpleado, name = "06_BuscarEmpleado"),
+#URLs Proveedores
     path('Proveedores/', Proveedores, name = "07_Proveedores"),
     path('AgregaProveedor/', AgregaProveedor, name = "07_AgregaProveedor"),    
     path('EditaProveedor/<proveedor_id>', EditaProveedor, name = "07_EditaProveedor"),
     path('EliminaProveedor/<proveedor_id>', EliminaProveedor, name = "07_EliminaProveedor"),
     path('Buscar-Proveedor', BuscarProveedor, name = "07_BuscarProveedor"),        
+#URLs Clientes
     path('Clientes', Clientes, name = "08_Clientes"),
     path('AgregaCliente', AgregaCliente, name = "08_AgregaCliente"),
     path('EditaCliente/<cliente_id>', EditaCliente, name = "08_EditaCliente"),
     path('EliminaCliente/<cliente_id>', EliminaCliente, name = "08_EliminaCliente"),
-
-    path('Buscar-Empleado', BuscarEmpleado, name = "06_BuscarEmpleado"),
-    path('Proveedores', Proveedores, name = "07_Proveedores"),
-    path('AgregaProveedor', AgregaProveedor, name = "07_AgregaProveedor"),    
-    path('Buscar-Proveedor', BuscarProveedor, name = "07_BuscarProveedor"),        
-    path('Clientes', Clientes, name = "08_Clientes"),
-    path('AgregaCliente', AgregaCliente, name = "08_AgregaCliente"),
     path('Buscar-Cliente', BuscarCliente, name = "08_BuscarCliente"),
 
-    path('ORIGEN', ORIGEN),
 ]

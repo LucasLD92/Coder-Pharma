@@ -11,8 +11,8 @@
 
     <form action="" method="POST"> 
         {% csrf_token %}
-
         
+        {{form.as_p}}
 
         <!--
        <p> Monodroga: <input type="text" name="monodroga"></p>

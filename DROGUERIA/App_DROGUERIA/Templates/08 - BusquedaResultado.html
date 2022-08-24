@@ -12,7 +12,7 @@
         
         {% if cliente %}
         <center>
-        <table style="width: 1250px;">
+        <table class="table table-striped">
             <tr>
                 <th class="text-center">Nombre y Apellido </th>
                 <th class="text-center">Razón Social</th>
@@ -23,6 +23,7 @@
                 <th class="text-center">Forma de Pago</th>
                 <th class="text-center">Codigo Cliente</th>
                 <th class="text-center">Codigo Cliente</th>
+                <th class="text-center">Accion</th>
             </tr>
                 {% for resultado in cliente %}
             <tr>
@@ -35,6 +36,10 @@
                 <td>{{resultado.form_pago}}</td>
                 <td>{{resultado.codigo_Cliente}}</td>
                 <td>{{resultado.tipo_Cliente}}</td>
+                <td>
+                    <a style="color: black; text-decoration: none" href="{% url '08_EditaCliente' resultado.id %}">Editar</a> |
+                    <a style="color: black; text-decoration: none" href="{% url '08_EliminaCliente' resultado.id %}">Eliminar</a> 
+                </td>
             </tr>
                 {% endfor %}
             </table>
