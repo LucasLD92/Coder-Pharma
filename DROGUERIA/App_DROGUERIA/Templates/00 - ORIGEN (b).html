@@ -40,9 +40,9 @@
                             
                             {% if user.is_authenticated %}
                                 <p>Bienvenido/a {{user.username}}</p>
-                                <li class="btn button"><a href="{% url '11_Logout' %}">LOGOUT</a></li>
+                                <li class="btn btn-primary"><a class="nav-link" href="{% url '11_Logout' %}">LOGOUT</a></li>
                             {% else %}
-                                <li class="btn button"><a href="{% url '09_Login' %}">LOGIN</a></li>
+                                <li class="btn btn-primary"><a class="nav-link" href="{% url '09_Login' %}">LOGIN</a></li>
                             {% endif %}
 
 
