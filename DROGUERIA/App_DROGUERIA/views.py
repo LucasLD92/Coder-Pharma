@@ -2,10 +2,16 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from App_DROGUERIA.models import DIRECTORIO, EMPLEADO, IMAGENES_DIRECTORIO,PRODUCTO,PROVEEDORES,CLIENTES
 from .forms import CreaCliente, CreaEmpleado, CreaProducto, CreaProveedor
-from django.core.mail import EmailMessage
+
 from django.template.loader import render_to_string
 from django.conf import settings
+from django.core.mail import EmailMessage
 from django.contrib import messages
+
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -37,6 +43,7 @@ def Clientes (request):
 
 # //////// Funciones ////////
 # Agrega Cliente <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
+
 def AgregaCliente(request):
     if request.method == 'POST':
         
@@ -436,6 +443,7 @@ def BuscarEmpleado(request):
         resultado = "No hay resultados"
     return HttpResponse(resultado)
 
+
 # Envío de Email
 
 def Contactar(request):
@@ -457,3 +465,39 @@ def Contactar(request):
         return redirect("09_Contacto")
     else:
         return render(request, "09 - Contacto.html")
+
+#Login
+def Loginview(request):
+
+    if request.method == 'POST':
+        formulario = AuthenticationForm(request, data=request.POST)
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            usuario = data["username"]
+            psw = data["password"]
+            user = authenticate(username=usuario, password=psw)
+            if user:
+                login(request, user)
+                return render(request, "01 - Inicio.html", {"mensaje": 'Bienvenido/a {usuario}'})
+            else:
+                return render(request, "01 - Inicio.html", {"mensaje": 'Datos incorrectos'})
+
+        return render(request, "01 - Inicio.html")
+
+    else:
+        formulario = AuthenticationForm()
+    return render(request, "09 - Login.html", {"formulario": formulario})
+
+def Register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            form.save()
+            return render(request, "01 - Inicio.html", {"mensaje": f'Usuario {username} creado'})
+
+    else:
+        form = UserCreationForm()
+
+    return render(request, "10 - Regitro.html", {"formulario": form})
+

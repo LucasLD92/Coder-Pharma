@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth.views import LogoutView
 from App_DROGUERIA.views import (Contactar, Inicio, Productos, Contacto,
 AcercadeCoderPharma, Directorio, Empleados, Proveedores, Clientes,
 AgregaProducto, AgregaCliente, AgregaProveedor, AgregaEmpleado, ORIGEN,
 BuscarProducto, BuscarProveedor, EditaProveedor, EliminaProveedor,
 EditaProducto, EliminaProducto, EditaEmpleado, EliminaEmpleado, 
-BuscarCliente, BuscarEmpleado, EditaCliente, EliminaCliente
+BuscarCliente, BuscarEmpleado, EditaCliente, EliminaCliente, Loginview, Register
 )
 
 
@@ -18,6 +19,10 @@ urlpatterns = [
     path('Directorio', Directorio, name = "05_Directorio"),
     path('ORIGEN', ORIGEN),
     path('Contactar', Contactar, name='09_Contacto'),
+#URLs Login
+    path('Login/', Loginview, name = "09_Login"),
+    path('Registrate/', Register, name = "10_Registro"),
+    path('Logout/', LogoutView.as_view(template_name='11 - Logout.html'), name = "11_Logout"),
 #URLs Productos
     path('Productos', Productos, name = "02_Productos"),
     path('AgregaProducto', AgregaProducto, name = "02_AgregaProducto"),
@@ -42,5 +47,6 @@ urlpatterns = [
     path('EditaCliente/<cliente_id>', EditaCliente, name = "08_EditaCliente"),
     path('EliminaCliente/<cliente_id>', EliminaCliente, name = "08_EliminaCliente"),
     path('Buscar-Cliente', BuscarCliente, name = "08_BuscarCliente"),
+
 
 ]

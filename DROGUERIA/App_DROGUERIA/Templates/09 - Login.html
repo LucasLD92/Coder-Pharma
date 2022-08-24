@@ -1,0 +1,22 @@
+{% extends '00 - ORIGEN (b).html' %}
+{% load static %}
+
+{% block blockname %}
+
+    <form action="{% url '09_Login' %}" method="POST">{% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input type="submit" value="LOGIN">
+        <br>
+        <br>
+        <a href="{% url '10_Registro' %}">REGISTRATE</a></li>
+        <br>
+        <br>
+        
+        
+            <a href="{% url '01_Inicio' %}" class="btn btn-outline-primary" disabled> VOLVER</a>
+      
+        
+    </form>
+{% endblock blockname %}

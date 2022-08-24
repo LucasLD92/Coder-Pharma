@@ -37,8 +37,15 @@
                             <li class="nav-item"><a class="nav-link" href="{% url '09_Contacto' %}">Contacto | </a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url '04_AcercadeCoderPharma' %}">Acerca de Coder-Pharma | </a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url '05_Directorio' %}">Directorio | </a></li>
-                            <li class="btn btn-primary" href="#signup">LOGIN</a>
-                            </li>
+                            
+                            {% if user.is_authenticated %}
+                                <p>Bienvenido/a {{user.username}}</p>
+                                <li class="btn btn-primary" disabled ><a style="color: rgb(255, 255, 255); text-decoration: none" href="{% url '11_Logout' %}">LOGOUT</a></li>
+                            {% else %}
+                                <li class="btn btn-primary" disabled ><a style="color: rgb(255, 255, 255); text-decoration: none" href="{% url '09_Login' %}">LOGIN</a></li>
+                            {% endif %}
+
+
                         </ul>
                     </div>
                 </div>
