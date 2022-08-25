@@ -11,13 +11,14 @@
     <title>Contacto</title>
 </head>
 <body>
-    <h1> Envíanos tu Mensaje </h1>
+    <h1 class="text-center"> Envíanos tu Mensaje </h1>
+    <hr>
     <br>
     <br>
 
     
     <center>
-        <div >
+        <div>
             <form action="" method="POST"> 
                 {% csrf_token %}
                 {% if messages %}
@@ -45,12 +46,10 @@
             </form>
         </div>
     </center>
-
-        
-        <a href="{% url '01_Inicio' %}" class="btn btn-outline-primary" disabled > VOLVER - </a>
-    
-
-
+        <br>
+            <a href="{% url '01_Inicio' %}" class="btn btn-outline-primary" disabled> VOLVER </a>
+        <br>
 </body>
 </html>
+<br>
 {% endblock blockname %}
