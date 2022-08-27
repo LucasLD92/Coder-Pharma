@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from App_DROGUERIA.models import DIRECTORIO, EMPLEADO, IMAGENES_DIRECTORIO,PRODUCTO,PROVEEDORES,CLIENTES
+from App_DROGUERIA.models import DIRECTORIO, EMPLEADO, PRODUCTO,PROVEEDORES,CLIENTES
 from .forms import CreaCliente, CreaEmpleado, CreaProducto, CreaProveedor
 
 from django.template.loader import render_to_string
@@ -42,8 +42,7 @@ def Clientes (request):
 
 
 # //////// Funciones ////////
-# Agrega Cliente <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
-
+# Agrega Cliente
 def AgregaCliente(request):
     if request.method == 'POST':
         
@@ -75,9 +74,7 @@ def AgregaCliente(request):
     formulario = CreaCliente()
 
     return render(request, "08 - AgregaCliente.html", {"form":formulario})
-
 # Edita Cliente
-
 def EditaCliente(request, cliente_id):
     
     cliente = CLIENTES.objects.get(id=cliente_id)
@@ -121,21 +118,14 @@ def EditaCliente(request, cliente_id):
                             })
 
     return render(request,"08 - AgregaCliente.html", {"form":formulario})
-
-
 # Elimina Cliente
-
-
 def EliminaCliente(request, cliente_id):
 
     cliente = CLIENTES.objects.get(id=cliente_id)
     cliente.delete()
 
     return redirect("08_Clientes")
-
-
-
-# Buscar Cliente <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
+# Buscar Cliente
 def BuscarCliente(request):
     if request.GET["nombre"]:
         nombre = request.GET["nombre"]
@@ -146,8 +136,7 @@ def BuscarCliente(request):
     return HttpResponse(resultado)
 
 
-
-# Agrega Proveedor <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
+# Agrega Proveedor
 def AgregaProveedor(request):
     if request.method == 'POST':
         
@@ -179,9 +168,7 @@ def AgregaProveedor(request):
     formulario = CreaProveedor()
 
     return render(request, "07 - AgregaProveedor.html", {"form":formulario})
-
 # Edita Proveedor
-
 def EditaProveedor(request, proveedor_id):
     
     proveedor = PROVEEDORES.objects.get(id=proveedor_id)
@@ -225,21 +212,14 @@ def EditaProveedor(request, proveedor_id):
                             })
 
     return render(request,"07 - AgregaProveedor.html", {"form":formulario})
-
-
 # Elimina Proveedor
-
 def EliminaProveedor(request, proveedor_id):
 
     proveedor = PROVEEDORES.objects.get(id=proveedor_id)
     proveedor.delete()
 
     return redirect("07_Proveedores")
-
-
-
-# Buscar Proveedor <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
-
+# Buscar Proveedor
 def BuscarProveedor(request):
     if request.GET["nombre"]:
         nombre = request.GET["nombre"]
@@ -250,7 +230,7 @@ def BuscarProveedor(request):
     return HttpResponse(resultado)
 
 
-# Agrega Producto <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
+# Agrega Producto
 def AgregaProducto(request):
 
     if request.method == 'POST':
@@ -280,9 +260,7 @@ def AgregaProducto(request):
     formulario = CreaProducto()
 
     return render(request, "02 - AgregaProducto.html", {"form":formulario})
-
 # Edita Producto
-
 def EditaProducto(request, producto_id):
     
     producto = PRODUCTO.objects.get(id=producto_id)
@@ -319,21 +297,14 @@ def EditaProducto(request, producto_id):
                             })
 
     return render(request,"02 - AgregaProducto.html", {"form":formulario})
-
-
 # Elimina Producto
-
-
 def EliminaProducto(request, producto_id):
 
     producto = PRODUCTO.objects.get(id=producto_id)
     producto.delete()
 
     return redirect("02_Productos")
-
-
-# Buscar Producto <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
-
+# Buscar Producto
 def BuscarProducto(request):
     if request.GET["monodroga"]:
         monodroga = request.GET["monodroga"]
@@ -343,7 +314,8 @@ def BuscarProducto(request):
         resultado = "No hay resultados"
     return HttpResponse(resultado)
 
-# Agrega Empleado <- 12/08_Lucas: Listo! funciona :) - FALTA PULIR DETALLES.
+
+# Agrega Empleado
 def AgregaEmpleado(request):
 
     if request.method == 'POST':
@@ -376,9 +348,7 @@ def AgregaEmpleado(request):
     formulario = CreaEmpleado()
 
     return render(request, "06 - AgregaEmpleado.html", {"form":formulario})
-
 # Edita Empleado
-
 def EditaEmpleado(request, empleado_id):
     
     empleado = EMPLEADO.objects.get(id=empleado_id)
@@ -421,19 +391,14 @@ def EditaEmpleado(request, empleado_id):
                             })
 
     return render(request,"06 - AgregaEmpleado.html", {"form":formulario})
-
-
 # Elimina Empleado
-
-
 def EliminaEmpleado(request, empleado_id):
 
     empleado = EMPLEADO.objects.get(id=empleado_id)
     empleado.delete()
 
     return redirect("06_Empleados")
-
-# Buscar Empleado <- 14/08_Lucas: Listo! Funciona :) - FALTA PULIR DETALLES.
+# Buscar Empleado
 def BuscarEmpleado(request):
     if request.GET["nombre"]:
         nombre = request.GET["nombre"]
@@ -445,7 +410,6 @@ def BuscarEmpleado(request):
 
 
 # Envío de Email
-
 def Contactar(request):
     if request.method == "POST":
         name = request.POST["nombre"]
