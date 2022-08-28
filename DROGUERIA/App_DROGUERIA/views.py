@@ -1,3 +1,4 @@
+import imp
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from App_DROGUERIA.models import DIRECTORIO, EMPLEADO, PRODUCTO,PROVEEDORES,CLIENTES, Avatar
@@ -11,6 +12,10 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.views.generic import DeleteView
+
+
+
 
 
 # Create your views here.
@@ -85,6 +90,7 @@ def Clientes (request):
 
 # //////// Funciones ////////
 # Agrega Cliente
+@login_required
 def AgregaCliente(request):
     if request.method == 'POST':
         
@@ -121,6 +127,7 @@ def AgregaCliente(request):
     except:
         return render(request, "08 - AgregaCliente.html", {"form":formulario})
 # Edita Cliente
+@login_required
 def EditaCliente(request, cliente_id):
     
     cliente = CLIENTES.objects.get(id=cliente_id)
@@ -169,12 +176,15 @@ def EditaCliente(request, cliente_id):
     except:
         return render(request,"08 - AgregaCliente.html", {"form":formulario})
 # Elimina Cliente
+@login_required
 def EliminaCliente(request, cliente_id):
-
+    
     cliente = CLIENTES.objects.get(id=cliente_id)
     cliente.delete()
 
     return redirect("08_Clientes")
+    
+
 # Buscar Cliente
 def BuscarCliente(request):
     if request.GET["nombre"]:
@@ -187,6 +197,7 @@ def BuscarCliente(request):
 
 
 # Agrega Proveedor
+@login_required
 def AgregaProveedor(request):
     if request.method == 'POST':
         
@@ -223,6 +234,7 @@ def AgregaProveedor(request):
     except:
         return render(request, "07 - AgregaProveedor.html", {"form":formulario})
 # Edita Proveedor
+@login_required
 def EditaProveedor(request, proveedor_id):
     
     proveedor = PROVEEDORES.objects.get(id=proveedor_id)
@@ -271,6 +283,7 @@ def EditaProveedor(request, proveedor_id):
     except:
         return render(request,"07 - AgregaProveedor.html", {"form":formulario})
 # Elimina Proveedor
+@login_required
 def EliminaProveedor(request, proveedor_id):
 
     proveedor = PROVEEDORES.objects.get(id=proveedor_id)
@@ -289,6 +302,7 @@ def BuscarProveedor(request):
 
 
 # Agrega Producto
+@login_required
 def AgregaProducto(request):
 
     if request.method == 'POST':
@@ -323,6 +337,7 @@ def AgregaProducto(request):
     except:
         return render(request, "02 - AgregaProducto.html", {"form":formulario})
 # Edita Producto
+@login_required
 def EditaProducto(request, producto_id):
     
     producto = PRODUCTO.objects.get(id=producto_id)
@@ -364,6 +379,7 @@ def EditaProducto(request, producto_id):
     except:
         return render(request,"02 - AgregaProducto.html", {"form":formulario})
 # Elimina Producto
+@login_required
 def EliminaProducto(request, producto_id):
 
     producto = PRODUCTO.objects.get(id=producto_id)
@@ -382,6 +398,7 @@ def BuscarProducto(request):
 
 
 # Agrega Empleado
+@login_required
 def AgregaEmpleado(request):
 
     if request.method == 'POST':
@@ -419,6 +436,7 @@ def AgregaEmpleado(request):
     except:
         return render(request, "06 - AgregaEmpleado.html", {"form":formulario})
 # Edita Empleado
+@login_required
 def EditaEmpleado(request, empleado_id):
     
     empleado = EMPLEADO.objects.get(id=empleado_id)
@@ -466,6 +484,7 @@ def EditaEmpleado(request, empleado_id):
     except:
         return render(request,"06 - AgregaEmpleado.html", {"form":formulario})
 # Elimina Empleado
+@login_required
 def EliminaEmpleado(request, empleado_id):
 
     empleado = EMPLEADO.objects.get(id=empleado_id)
