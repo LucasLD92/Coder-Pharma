@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from App_DROGUERIA.models import DIRECTORIO, EMPLEADO, IMAGENES_DIRECTORIO,PRODUCTO,PROVEEDORES,CLIENTES
+from App_DROGUERIA.models import DIRECTORIO, EMPLEADO, PRODUCTO,PROVEEDORES,CLIENTES
 from .forms import CreaCliente, CreaEmpleado, CreaProducto, CreaProveedor
 
 from django.template.loader import render_to_string
