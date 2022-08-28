@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LogoutView
-from App_DROGUERIA.views import (Contactar, Inicio, Productos, Contacto,
+from App_DROGUERIA.views import (Contactar, EliminaCliente, Inicio, Productos, Contacto,
 AcercadeCoderPharma, Directorio, Empleados, Proveedores, Clientes,
 AgregaProducto, AgregaCliente, AgregaProveedor, AgregaEmpleado, ORIGEN,
 BuscarProducto, BuscarProveedor, EditaProveedor, EliminaProveedor,
 EditaProducto, EliminaProducto, EditaEmpleado, EliminaEmpleado, 
-BuscarCliente, BuscarEmpleado, EditaCliente, EliminaCliente, Loginview, Register
+BuscarCliente, BuscarEmpleado, EditaCliente, Loginview, Register
 )
 
 

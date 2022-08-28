@@ -1,3 +1,4 @@
+import imp
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from App_DROGUERIA.models import DIRECTORIO, EMPLEADO, IMAGENES_DIRECTORIO,PRODUCTO,PROVEEDORES,CLIENTES
@@ -11,6 +12,10 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.views.generic import DeleteView
+
+
+
 
 
 # Create your views here.
@@ -123,11 +128,13 @@ def EditaCliente(request, cliente_id):
 # Elimina Cliente
 @login_required
 def EliminaCliente(request, cliente_id):
-
+    
     cliente = CLIENTES.objects.get(id=cliente_id)
     cliente.delete()
 
     return redirect("08_Clientes")
+    
+
 # Buscar Cliente
 def BuscarCliente(request):
     if request.GET["nombre"]:
