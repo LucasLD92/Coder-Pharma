@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from App_DROGUERIA.models import DIRECTORIO, EMPLEADO, PRODUCTO,PROVEEDORES,CLIENTES
+from App_DROGUERIA.models import DIRECTORIO, EMPLEADO, PRODUCTO,PROVEEDORES,CLIENTES, Avatar
 from .forms import CreaCliente, CreaEmpleado, CreaProducto, CreaProveedor
 
 from django.template.loader import render_to_string
@@ -17,27 +17,69 @@ from django.contrib.auth.decorators import login_required
 
 # //////// Visualizacion de Templates ////////
 def ORIGEN (request):
-    return render(request, "00 - ORIGEN.html")
+    try:
+        avatar = Avatar.objects.get(usuario = request.user.id)
+        return render(request, "00 - ORIGEN.html", {"url": avatar.imagen.url})
+    except:
+        return render(request, "00 - ORIGEN.html")
+def ORIGEN_B (request):
+    try:
+        avatar = Avatar.objects.get(usuario = request.user.id)
+        return render(request, "00 - ORIGEN (b).html", {"url": avatar.imagen.url})
+    except:
+        return render(request, "00 - ORIGEN (b).html")
 def Inicio(request):
-    return render(request,"01 - Inicio.html")
+    try:
+        avatar = Avatar.objects.get(usuario = request.user.id)
+        return render(request,"01 - Inicio.html", {"url": avatar.imagen.url})
+    except:
+        return render(request,"01 - Inicio.html")
 def Productos(request):
     productos = PRODUCTO.objects.all()
-    return render(request,"02 - Productos.html", {"Vademecum": productos})
+    try:
+        avatar = Avatar.objects.get(usuario = request.user.id)
+        return render(request,"02 - Productos.html", {"Vademecum": productos, "url": avatar.imagen.url})
+    except:
+        return render(request,"02 - Productos.html")
 def Contacto (request):
-    return render(request,"03 - Contacto.html")
+    try:
+        avatar = Avatar.objects.get(usuario = request.user.id)
+        return render(request,"03 - Contacto.html", {"url": avatar.imagen.url})
+    except:
+        return render(request,"03 - Contacto.html")
 def AcercadeCoderPharma (request):
-    return render(request,"04 - AcercadeCoderPharma.html")
+    try:
+        avatar = Avatar.objects.get(usuario = request.user.id)
+        return render(request,"04 - AcercadeCoderPharma.html", {"url": avatar.imagen.url})
+    except:
+        return render(request,"04 - AcercadeCoderPharma.html")
 def Directorio (request):
-    return render(request,"05 - Directorio.html")
+    try:
+        avatar = Avatar.objects.get(usuario = request.user.id)
+        return render(request,"05 - Directorio.html", {"url": avatar.imagen.url})
+    except:
+        return render(request,"05 - Directorio.html")
 def Empleados (request):
     empleados = EMPLEADO.objects.all()
-    return render(request,"06 - Empleados.html", {"Personal": empleados})
+    try:
+        avatar = Avatar.objects.get(usuario = request.user.id)
+        return render(request,"06 - Empleados.html", {"Personal": empleados, "url": avatar.imagen.url})
+    except:
+        return render(request,"06 - Empleados.html", {"Personal": empleados})
 def Proveedores (request):
     proveedor = PROVEEDORES.objects.all()
-    return render(request,"07 - Proveedores.html", {"Proveedores": proveedor})
+    try:
+        avatar = Avatar.objects.get(usuario = request.user.id)
+        return render(request,"07 - Proveedores.html", {"Proveedores": proveedor, "url": avatar.imagen.url})
+    except:
+        return render(request,"07 - Proveedores.html", {"Proveedores": proveedor})
 def Clientes (request):
     clientes = CLIENTES.objects.all()
-    return render(request,"08 - Clientes.html", {"Clientes": clientes}) 
+    try:
+        avatar = Avatar.objects.get(usuario = request.user.id)
+        return render(request,"08 - Clientes.html", {"Clientes": clientes, "url": avatar.imagen.url})
+    except:
+        return render(request,"08 - Clientes.html", {"Clientes": clientes}) 
 
 
 
@@ -73,7 +115,11 @@ def AgregaCliente(request):
     
     formulario = CreaCliente()
 
-    return render(request, "08 - AgregaCliente.html", {"form":formulario})
+    try:
+            avatar = Avatar.objects.get(usuario = request.user.id)
+            return render(request, "08 - AgregaCliente.html", {"form":formulario, "url": avatar.imagen.url})
+    except:
+        return render(request, "08 - AgregaCliente.html", {"form":formulario})
 # Edita Cliente
 def EditaCliente(request, cliente_id):
     
@@ -117,7 +163,11 @@ def EditaCliente(request, cliente_id):
                             
                             })
 
-    return render(request,"08 - AgregaCliente.html", {"form":formulario})
+    try:
+            avatar = Avatar.objects.get(usuario = request.user.id)
+            return render(request, "08 - AgregaCliente.html", {"form":formulario, "url": avatar.imagen.url})
+    except:
+        return render(request,"08 - AgregaCliente.html", {"form":formulario})
 # Elimina Cliente
 def EliminaCliente(request, cliente_id):
 
@@ -167,7 +217,11 @@ def AgregaProveedor(request):
     
     formulario = CreaProveedor()
 
-    return render(request, "07 - AgregaProveedor.html", {"form":formulario})
+    try:
+            avatar = Avatar.objects.get(usuario = request.user.id)
+            return render(request, "07 - AgregaProveedor.html", {"form":formulario, "url": avatar.imagen.url})
+    except:
+        return render(request, "07 - AgregaProveedor.html", {"form":formulario})
 # Edita Proveedor
 def EditaProveedor(request, proveedor_id):
     
@@ -211,7 +265,11 @@ def EditaProveedor(request, proveedor_id):
                             
                             })
 
-    return render(request,"07 - AgregaProveedor.html", {"form":formulario})
+    try:
+            avatar = Avatar.objects.get(usuario = request.user.id)
+            return render(request, "07 - AgregaProveedor.html", {"form":formulario, "url": avatar.imagen.url})
+    except:
+        return render(request,"07 - AgregaProveedor.html", {"form":formulario})
 # Elimina Proveedor
 def EliminaProveedor(request, proveedor_id):
 
@@ -259,7 +317,11 @@ def AgregaProducto(request):
     
     formulario = CreaProducto()
 
-    return render(request, "02 - AgregaProducto.html", {"form":formulario})
+    try:
+            avatar = Avatar.objects.get(usuario = request.user.id)
+            return render(request, "02 - AgregaProducto.html", {"form":formulario, "url": avatar.imagen.url})
+    except:
+        return render(request, "02 - AgregaProducto.html", {"form":formulario})
 # Edita Producto
 def EditaProducto(request, producto_id):
     
@@ -296,7 +358,11 @@ def EditaProducto(request, producto_id):
                             'stock':producto.stock,
                             })
 
-    return render(request,"02 - AgregaProducto.html", {"form":formulario})
+    try:
+            avatar = Avatar.objects.get(usuario = request.user.id)
+            return render(request, "02 - AgregaProducto.html", {"form":formulario, "url": avatar.imagen.url})
+    except:
+        return render(request,"02 - AgregaProducto.html", {"form":formulario})
 # Elimina Producto
 def EliminaProducto(request, producto_id):
 
@@ -347,7 +413,11 @@ def AgregaEmpleado(request):
     
     formulario = CreaEmpleado()
 
-    return render(request, "06 - AgregaEmpleado.html", {"form":formulario})
+    try:
+            avatar = Avatar.objects.get(usuario = request.user.id)
+            return render(request, "06 - AgregaEmpleado.html", {"form":formulario, "url": avatar.imagen.url})
+    except:
+        return render(request, "06 - AgregaEmpleado.html", {"form":formulario})
 # Edita Empleado
 def EditaEmpleado(request, empleado_id):
     
@@ -390,7 +460,11 @@ def EditaEmpleado(request, empleado_id):
                             'horarioSalida':empleado.horarioSalida,
                             })
 
-    return render(request,"06 - AgregaEmpleado.html", {"form":formulario})
+    try:
+            avatar = Avatar.objects.get(usuario = request.user.id)
+            return render(request, "06 - AgregaEmpleado.html", {"form":formulario, "url": avatar.imagen.url})
+    except:
+        return render(request,"06 - AgregaEmpleado.html", {"form":formulario})
 # Elimina Empleado
 def EliminaEmpleado(request, empleado_id):
 
@@ -428,7 +502,16 @@ def Contactar(request):
         messages.success(request, 'Se ha enviado su consulta')
         return redirect("09_Contacto")
     else:
-        return render(request, "09 - Contacto.html")
+        try:
+            avatar = Avatar.objects.get(usuario = request.user.id)
+            return render(request, "09 - Contacto.html", {"url": avatar.imagen.url})
+        except:
+            return render(request, "09 - Contacto.html")
+
+
+
+
+
 
 #Login
 def Loginview(request):
