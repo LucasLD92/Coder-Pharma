@@ -1,5 +1,9 @@
+from dataclasses import field
+import imaplib
+import mimetypes
 from django.db import models
 from django.forms import IntegerField
+from django.contrib.auth.models import User
 
 # Create your models here.
 class DIRECTORIO(models.Model):
@@ -71,5 +75,11 @@ class CLIENTES(models.Model):
     def __str__(self) -> str:
         return f'Nombre y Apellido: {self.nombre} {self.apellido} - Razon Social: {self.razonSocial} - Direccion: {self.direccion} - C.P.: {self.codigoPostal} - Teléfono: {self.telefono} - E-mail: {self.eMail} - Forma de Pago: {self.form_pago} - Código Proveedor: {self.codigo_Cliente} - Tipo Cliente: {self.tipo_Cliente}'
 
-class IMAGENES_DIRECTORIO(models.Model):
+class IMAGENES(models.Model):
     imagen = models.ImageField(upload_to="imagenes")
+    def __str__(self) -> str:
+        return f'Imágen: {self.imagen}'
+
+class Avatar(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='Avatares', blank=True, null=True)

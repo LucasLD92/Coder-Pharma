@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LogoutView
-from App_DROGUERIA.views import (Contactar, EliminaCliente, Inicio, Productos, Contacto,
+from App_DROGUERIA.views import (ORIGEN_B, Contactar, EliminaCliente, Inicio, Productos, Contacto,
+
 AcercadeCoderPharma, Directorio, Empleados, Proveedores, Clientes,
 AgregaProducto, AgregaCliente, AgregaProveedor, AgregaEmpleado, ORIGEN,
 BuscarProducto, BuscarProveedor, EditaProveedor, EliminaProveedor,
@@ -18,6 +19,7 @@ urlpatterns = [
     path('AcercadeCoder-Pharma', AcercadeCoderPharma, name = "04_AcercadeCoderPharma"),
     path('Directorio', Directorio, name = "05_Directorio"),
     path('ORIGEN', ORIGEN),
+    path('ORIGEN_B', ORIGEN_B),
     path('Contactar', Contactar, name='09_Contacto'),
 #URLs Login
     path('Login/', Loginview, name = "09_Login"),
