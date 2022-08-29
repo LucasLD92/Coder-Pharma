@@ -8,15 +8,14 @@
         <br>
         <p class="text-center"><img class="img-fluid rounded mb-5 mb-lg-0" src="http://127.0.0.1:8000/media/imagenes/Membrete_Coder-Pharma.png" alt="..." /></p>
         <hr>
-        <h1> NUESTRO EQUIPO! </h1>
+        <h1 class="text-center"> NUESTRO EQUIPO</h1>
         <br>
         <br>
         <br>
         <br>
-        <p> Acá detallamos a los empleados brevemente... </p>
 
         <center>
-            <h4 class="text-center"> Buscar cliente </h4>
+            <h4 class="text-center"> Buscar Personal </h4>
             <form action="{% url '06_BuscarEmpleado' %}" method="GET"> {% csrf_token %}
             <p><input type="text" name="nombre">
             <input type="submit" value="BUSCAR">
@@ -54,12 +53,14 @@
             </table>
         </center>
 
-        <p> Para agregar un nuevo EMPLEADO, click  <a href="{% url '06_AgregaEmpleado' %}"> ACA -</a> </p>
+        <p> Para agregar un nuevo EMPLEADO, click  <a style="text-decoration: none;" href="{% url '06_AgregaEmpleado' %}" class="btn btn-outline-primary"> AQUI</a> </p>
 
         <p> Estaria bueno poner algo como "POSTULATE" y que te deje enviar un CV... </p>
         <hr>
        
-            <a href="{% url '04_AcercadeCoderPharma' %}" class="btn btn-outline-primary" disabled> VOLVER</a>
+        <h1 class="text-center"><a href="{% url '04_AcercadeCoderPharma' %}" class="btn btn-outline-primary" disabled> VOLVER</a></h1>
+        
+        <hr><hr>
         
     </body>
 </html>
