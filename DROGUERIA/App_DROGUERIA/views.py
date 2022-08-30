@@ -42,12 +42,6 @@ def Productos(request):
         return render(request,"02 - Productos.html", {"Vademecum": productos, "url": avatar.imagen.url})
     except:
         return render(request,"02 - Productos.html")
-def Contacto (request):
-    try:
-        avatar = Avatar.objects.get(usuario = request.user.id)
-        return render(request,"03 - Contacto.html", {"url": avatar.imagen.url})
-    except:
-        return render(request,"03 - Contacto.html")
 def AcercadeCoderPharma (request):
     try:
         avatar = Avatar.objects.get(usuario = request.user.id)
