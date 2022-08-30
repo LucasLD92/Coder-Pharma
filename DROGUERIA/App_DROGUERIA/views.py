@@ -16,10 +16,6 @@ from django.views.generic import DeleteView
 
 
 
-
-
-# Create your views here.
-
 # //////// Visualizacion de Templates ////////
 def ORIGEN (request):
     try:
@@ -85,7 +81,6 @@ def Clientes (request):
         return render(request,"08 - Clientes.html", {"Clientes": clientes, "url": avatar.imagen.url})
     except:
         return render(request,"08 - Clientes.html", {"Clientes": clientes}) 
-
 
 
 # //////// Funciones ////////
@@ -183,8 +178,6 @@ def EliminaCliente(request, cliente_id):
     cliente.delete()
 
     return redirect("08_Clientes")
-    
-
 # Buscar Cliente
 def BuscarCliente(request):
     if request.GET["nombre"]:
@@ -526,10 +519,6 @@ def Contactar(request):
             return render(request, "09 - Contacto.html", {"url": avatar.imagen.url})
         except:
             return render(request, "09 - Contacto.html")
-
-
-
-
 
 
 #Login

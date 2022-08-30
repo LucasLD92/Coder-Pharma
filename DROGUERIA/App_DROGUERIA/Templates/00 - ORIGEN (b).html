@@ -33,8 +33,16 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="{% url '02_Productos' %}">Productos | </a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url '09_Contacto' %}">Contacto | </a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menú</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="{% url '08_Clientes' %}">Clientes</a></li>
+                                    <li><a class="dropdown-item" href="{% url '06_Empleados' %}">Empleados</a></li>
+                                    <li><a class="dropdown-item" href="{% url '07_Proveedores' %}">Proveedores</a></li>
+                                    <li><a class="dropdown-item" href="{% url '02_Productos' %}">Productos</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="{% url '09_Contacto' %}"> | Contacto | </a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url '04_AcercadeCoderPharma' %}">Acerca de Coder-Pharma | </a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url '05_Directorio' %}">Directorio | </a></li>
                             
